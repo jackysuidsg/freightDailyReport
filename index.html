@@ -17,22 +17,249 @@
 .overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:#0d293bdc}.overlay.open{display:flex}.modal{width:min(1100px,100%);max-height:94vh;border-radius:14px;background:white;overflow:hidden;display:flex;flex-direction:column}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:13px 20px;border-bottom:1px solid #e1eaf0}.modal-head strong{font-size:16px}.modal-body{overflow:auto;background:#e5edf1;padding:20px;text-align:center}.modal canvas{max-width:100%;height:auto;box-shadow:0 8px 22px #1738491b;background:white}.overlay>img{max-width:90vw;max-height:90vh;object-fit:contain}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);padding:12px 20px;background:#1a4153;color:white;z-index:110;border-radius:9px;box-shadow:0 10px 30px #17344638;display:none;font-size:12px}.toast.show{display:block}
 @media(max-width:880px){.entrygrid{grid-template-columns:1fr 130px}.entrygrid .field.notes{grid-column:1}.entrygrid button[type=submit]{grid-column:2;grid-row:2}.scopehint{text-align:left}.data-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:550px){.page{padding:18px 12px 50px}.mast h1{font-size:21px}.mark{width:41px;height:41px}.card-body{padding:18px 15px}.datewrap{width:calc(50% - 9px)}.scopehint{width:100%;min-width:0}.dsp{min-width:0}.data-grid{gap:8px}.data-field{padding:11px}.data-field .control{font-size:19px}.entrygrid{grid-template-columns:minmax(0,1fr) 92px;gap:9px}.customcase{grid-template-columns:1fr}.entrygrid .btn{padding:10px}.sectionhead h2{font-size:16px}.buttons{gap:5px}.btn{padding:9px 10px}.station{padding:8px 13px}}
+
+/* Refinements: clearer dates, split pickup/delivery metrics, aligned follow-up form */
+.scopehint{background:#edf6f5;border-radius:10px;padding:9px 13px;color:#567b89}
+.datewrap{width:188px}.datewrap .control{font-size:17px;font-weight:820;color:#143b4f;height:51px}
+.metric-section{margin-top:4px}.metric-section+.metric-section{margin-top:22px}.metric-label{font-weight:850;color:#284d61;font-size:14px;margin:0 0 12px;display:flex;gap:8px;align-items:center}.metric-dot{width:9px;height:9px;border-radius:50%;display:inline-block}.teal-dot{background:#0a9484}.amber-dot{background:#dfad62}.metric-sub{color:#8aa0ad;font-weight:500;font-size:11px;margin-left:auto}.delivery-metric{padding-top:16px;border-top:1px solid #edf2f5}
+.delivery-entry{display:grid;grid-template-columns:minmax(180px,1.45fr) 95px 160px minmax(160px,1.3fr) auto;gap:9px;align-items:end}.delivery-entry .btn{height:47px}.delivery-entry #deliveryCustomWrap:not([hidden]){grid-column:1 / -1;grid-row:2}.delivery-entry .control{font-size:13px;font-weight:600}.delivery-hint{margin-top:9px}
+.follow-list{margin-top:15px;border:1px solid #e2ecf0;border-radius:12px;overflow:hidden}.follow-item{padding:12px 13px;display:grid;grid-template-columns:minmax(160px,1.6fr) 85px 145px minmax(100px,1.25fr) 67px;align-items:center;gap:8px;border-bottom:1px solid #edf2f5;background:#fff;font-size:12px}.follow-item:last-child{border-bottom:0}.follow-item.head{background:#f0f5f7;font-size:11px;color:#728d9b;font-weight:800;padding:9px 13px}.follow-item .follow-reason{color:#315369;font-weight:780}.follow-item .follow-reason small{display:block;font-size:10px;color:#8ba0a9;font-weight:500}.follow-item .follow-count{text-align:center;font-weight:850;color:#173c50;font-size:15px}.follow-item .follow-eta{color:#ad7429;font-weight:760}.follow-item .follow-note{color:#778e9d;overflow-wrap:anywhere}.follow-actions{white-space:nowrap;display:flex;justify-content:flex-end;gap:3px}.follow-actions button{border:0;background:none;color:#688d9a;font-size:15px;padding:5px}.follow-empty{padding:18px;text-align:center;color:#9aabb4;font-size:12px}.metric-group-title{color:#6d8797;font-weight:800;font-size:11px;margin-top:14px}
+@media(max-width:880px){.delivery-entry{grid-template-columns:1fr 110px}.delivery-entry .field:nth-child(3){grid-column:2;grid-row:1}.delivery-entry .field:nth-child(4){grid-column:1}.delivery-entry .field:nth-child(5){grid-column:1}.delivery-entry #deliveryCustomWrap:not([hidden]){grid-column:1/-1;grid-row:auto}.delivery-entry .btn{grid-column:2;grid-row:auto}.metric-sub{display:none}.follow-item{grid-template-columns:minmax(130px,1.4fr) 70px 110px 1fr 56px}.follow-item.head{font-size:10px}}
+@media(max-width:550px){.datewrap{width:calc(50% - 9px)}.datewrap .control{font-size:13px;padding-left:8px;padding-right:2px}.delivery-entry{grid-template-columns:minmax(0,1fr) 100px}.follow-item{grid-template-columns:minmax(0,1fr) 60px 100px 50px;gap:4px;padding:11px 8px}.follow-item .follow-note,.follow-item.head .follow-note{display:none}.follow-item .follow-eta{font-size:11px}.follow-item .follow-reason{font-size:11px}.follow-item .follow-reason small{font-size:9px}}
+/* V3 · missing-scan exceptions: compact third track and percentages */
+.group-title.exception{background:#ecf1ff;color:#3e5f98}
+.exception-panel{border:1px solid #dbe4f1;border-radius:13px;overflow:hidden;margin-top:16px;background:#fff}
+.exception-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f1f5fc;padding:13px 16px}
+.exception-heading h3{color:#284f80;font-size:16px;font-weight:850}
+.exception-heading small{display:block;color:#6884a1;font-size:11px;margin-top:3px}
+.exception-heading strong{color:#245c8b;font-size:23px;white-space:nowrap}
+.exception-rates{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:13px 15px;border-bottom:1px solid #e8eef5}
+.exception-rate{padding:12px 14px;background:#f7f9fd;border:1px solid #e7edf5;border-radius:10px}
+.exception-rate .caption{color:#6b8096;font-size:11px;font-weight:750;display:block}
+.exception-rate .value{display:block;font-size:24px;color:#244b7d;font-weight:900;margin-top:2px}
+.exception-footnote{color:#7b8e9e;font-size:11px;padding:0 15px 14px}
+@media(max-width:550px){.exception-rates{grid-template-columns:1fr 1fr;gap:7px;padding:10px}.exception-rate{padding:10px}.exception-rate .value{font-size:21px}.exception-heading h3{font-size:14px}}
+/* V4: dedicated anomaly editor and more readable canvas preview */
+.exception-panel .follow-item{grid-template-columns:minmax(200px,1.8fr) 90px minmax(130px,1.1fr) 68px}
+.exception-panel .follow-item.head{grid-template-columns:minmax(200px,1.8fr) 90px minmax(130px,1.1fr) 68px}
+.anomaly-entry{display:grid;grid-template-columns:minmax(240px,2fr) 115px minmax(210px,1.2fr) auto;gap:10px;align-items:end}
+.anomaly-entry .btn{height:47px}
+.exception-panel{margin-top:12px;background:#fff}
+.exception-panel .follow-list{margin:0 12px 12px}
+.exception-panel .exception-rates{border-bottom:1px solid #dbe5ee}
+.anomaly-detail{font-size:13px;color:#284a60;font-weight:730;overflow-wrap:anywhere}
+.anomaly-detail small{font-size:11px;color:#7f96a7;display:block;font-weight:500;margin-top:3px}
+.anomaly-note{font-size:12px;color:#5e798a;overflow-wrap:anywhere}
+.anomaly-actions button{border:0;background:transparent;color:#66889d;font-size:16px;padding:4px}
+.anomaly-actions button:hover{color:#0a7e74}
+#reportCanvas{display:block;max-width:none;width:auto;height:auto;margin:0 auto}
+.modal-body{overflow:auto;text-align:left}
+.modal{width:min(1240px,100%)}
+@media(max-width:880px){.anomaly-entry{grid-template-columns:minmax(0,1fr) 95px}.anomaly-entry .field.notes{grid-column:1}.anomaly-entry .btn{grid-column:2;grid-row:2}.mast .buttons{gap:7px}}
+@media(max-width:550px){.anomaly-entry{grid-template-columns:minmax(0,1fr) 90px}.anomaly-entry .field.notes{grid-column:1}.anomaly-entry .btn{grid-column:2}.modal-body{padding:8px}}
+
+/* V4.1: final reconciliation is at the bottom of the entry form */
+.audit-header{margin-bottom:14px}
+.audit-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.audit-card{border:1px solid #dce7ec;background:#f8fbfc;border-radius:12px;padding:18px 18px 16px}
+.audit-card>span{font-size:14px;font-weight:850;color:#33596c;display:block}
+.audit-card>strong{font-size:22px;color:#143e51;font-weight:900;display:block;margin-top:10px}
+.audit-card>small{display:block;color:#77929f;font-size:12px;margin:8px 0 12px}
+.audit-card .alert{margin:0;font-size:12px}
+@media(max-width:650px){.audit-cards{grid-template-columns:1fr}.audit-card>strong{font-size:19px}}
+
+/* V4.2 — prominent, self-explanatory final reconciliation */
+.audit-cards{gap:15px}
+.audit-card{background:#fff;border:1px solid #dce6eb;padding:19px;border-radius:14px}
+.audit-card h3{font-size:17px;font-weight:900;color:#14394c;margin:0 0 12px}
+.audit-figures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:9px 0 15px}
+.audit-figure{padding:12px 10px;background:#f1f6f8;border-radius:10px;min-width:0}
+.audit-figure small{display:block;font-size:11px;color:#668492;font-weight:750}
+.audit-figure strong{display:block;color:#153c50;font-size:25px;font-weight:900;margin-top:2px;line-height:1.4}
+.audit-figure[data-color="good"]{background:#e7f6ef}.audit-figure[data-color="bad"]{background:#fff1e3}
+.audit-figure[data-color="good"] strong{color:#087c67}.audit-figure[data-color="bad"] strong{color:#a76624}
+.audit-detail{border-top:1px solid #e6edf0;padding-top:11px;font-size:12px;color:#597587;line-height:1.8}
+.audit-detail strong{font-size:13px;color:#1b475e}
+.audit-result{margin-top:12px;border-radius:10px;padding:11px 12px;font-size:13px;font-weight:800}
+.audit-result.good{background:#e7f6ee;color:#087763}.audit-result.warn{background:#fff3e2;color:#975e1a}.audit-result.soft{background:#f1f5f7;color:#738c99}
+@media(max-width:780px){.audit-cards{grid-template-columns:1fr}}
+@media(max-width:420px){.audit-figure{padding:10px 8px}.audit-figure strong{font-size:20px}}
+
+/* V4.3 — calm information hierarchy, clear reversible row actions */
+:root{--bg:#f3f6f8;--line:#dce6ea}
+.page{max-width:1240px;padding:28px 28px 74px}
+.card{border-radius:18px;border-color:#dfe8ed;box-shadow:0 5px 20px rgba(18,52,71,.035);margin-bottom:18px}
+.card-body{padding:27px 30px}
+.mast{padding:2px 4px 4px;align-items:flex-start}
+.mast h1{font-size:31px;letter-spacing:-.8px}
+.mast h1 small{font-size:12px;letter-spacing:.8px}
+.sectionhead{margin-bottom:20px;align-items:center}
+.sectionhead h2{font-size:20px;letter-spacing:-.35px}
+.sectionhead p{font-size:13px;color:#7f95a3;line-height:1.6}
+.eyebrow{color:#5e8b9c;font-size:11px;letter-spacing:1px}
+.rule{margin:28px 0;background:#e8eef1}
+.label{color:#567484;font-size:12px}
+.control{border-radius:11px;border-color:#d7e5eb}
+.stations{padding:5px}
+.station{min-height:44px}
+.data-field{background:#fafcfd;border-color:#e3eaed;min-height:113px}
+.data-field.rate{background:#e7f5ee}
+.metric-label{font-size:15px;margin-bottom:14px}
+.metric-section+.metric-section{margin-top:24px}
+.entrybox{background:#f8fbfc;border-color:#e0eaf0;padding:18px;border-radius:14px}
+.entrygrid{grid-template-columns:minmax(240px,1.8fr) 105px minmax(190px,1.2fr) auto}
+.entrygrid .btn,.anomaly-entry .btn,.delivery-entry .btn{min-height:47px}
+.two-groups{gap:13px;margin-top:19px}
+.group-card{border-radius:13px}
+.group-title{padding:15px 18px}
+.group-title h3{font-size:15px}
+.problem{padding:12px 16px}
+.problem-text b{font-size:13px}
+.problem .iconbtn{background:#f3f7f9;border:1px solid #e2ebef;border-radius:8px;min-width:33px;height:33px;font-size:18px;color:#5f7e8f}
+.problem .iconbtn:hover{color:#a0413d;background:#fff1ef}
+.exception-panel{border:0;margin-top:10px}
+.exception-panel .follow-list{margin:0}
+.exception-footnote{padding:12px 1px;color:#8297a3}
+.exception-rates{border:1px solid #e0e8f1;border-radius:12px;gap:12px;margin-bottom:13px;padding:11px;background:#f8fbfe}
+.exception-rate{background:#fff}
+.delivery-entry{display:grid;grid-template-columns:minmax(170px,1.5fr) minmax(90px,.48fr) minmax(150px,.76fr) minmax(170px,1.08fr) auto;gap:10px;align-items:end}
+.delivery-entry .btn{padding:10px 16px}
+.delivery-hint{margin:12px 2px 0;font-size:12px}
+.follow-list{margin-top:16px;border:1px solid #dfe8ee;border-radius:14px;overflow:hidden;background:white}
+.follow-empty{padding:28px 16px}
+.record-list-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:12px 18px;background:#edf3f6;border-bottom:1px solid #e2eaee;color:#3c6475}
+.record-list-head strong{font-size:13px}
+.record-list-head span{font-size:11px;color:#7d97a5}
+.record-row{display:grid;grid-template-columns:minmax(170px,1.8fr) minmax(85px,.5fr) minmax(144px,.86fr) auto;gap:16px;align-items:center;padding:15px 18px;border-bottom:1px solid #e9eef2;background:#fff}
+.record-row:last-child{border-bottom:0}
+.record-row:nth-of-type(odd){background:#fcfdfd}
+.record-reason{min-width:0}
+.record-reason b{display:block;font-size:14px;color:#234a5e;line-height:1.45;font-weight:820}
+.record-reason small{display:block;font-size:11px;color:#8ba0ae;line-height:1.5;margin-top:3px;overflow-wrap:anywhere}
+.record-qty{min-width:0;display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.record-qty strong{font-size:23px;color:#163e52;font-weight:900}
+.record-qty small{font-size:10px;color:#92a3ab}
+.record-eta small{display:block;font-size:10px;font-weight:730;color:#849aa6}
+.record-eta b{display:block;font-size:13px;font-weight:810;color:#986521;margin-top:3px;white-space:nowrap}
+.record-eta b.pending{color:#ab7b39}
+.record-actions{display:flex;gap:7px;justify-content:flex-end;align-items:center;flex-wrap:nowrap}
+.record-actions button{font:700 11px/1.2 inherit;font-size:11px;font-weight:750;min-height:36px;white-space:nowrap;border-radius:8px;border:1px solid #deeaee;background:white;padding:8px 10px;color:#3e6577}
+.record-actions button:hover{border-color:#9fc6cf;background:#f2f8fa}
+.record-actions button.record-delete{color:#a4524c;border-color:#f1dada;background:#fff9f8}
+.record-actions button.record-delete:hover{background:#ffece9;border-color:#e7a39d}
+.record-note{grid-column:1/-1;border-left:3px solid #bfd9dd;padding:3px 10px;color:#557487;font-size:12px;overflow-wrap:anywhere;line-height:1.6}
+.record-note span{display:block;color:#809aa8;font-size:10px;font-weight:800;margin-bottom:1px}
+.record-row.abnormal{grid-template-columns:minmax(170px,1fr) 95px auto}
+.record-row.abnormal .record-actions{grid-column:3}
+.audit-cards{gap:14px}
+.audit-card{background:#fdfefe}
+.audit-figures{gap:10px}
+.uploadbar{background:#f8fafb}
+.toast{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px}
+.toast-undo{border:1px solid #a6d1da;background:#f5fdff;color:#143c51;padding:7px 11px;border-radius:7px;font-weight:850;cursor:pointer;min-height:34px}
+.toast-undo:hover{background:#dceef2}
+@media(max-width:1080px){
+  .page{padding:22px 18px 60px}
+  .card-body{padding:22px}
+  .delivery-entry{grid-template-columns:minmax(0,1.6fr) minmax(90px,.5fr) minmax(160px,.9fr)}
+  .delivery-entry .field:nth-child(4){grid-column:1/3;grid-row:auto}
+  .delivery-entry .btn{grid-column:3;grid-row:auto}
+  .record-row{gap:12px}
+}
+@media(max-width:720px){
+  .page{padding:15px 10px 52px}
+  .card-body{padding:20px 15px}
+  .mast{gap:15px}
+  .mast h1{font-size:25px}
+  .mast .buttons{gap:7px}
+  .btn{font-size:12px}
+  .sectionhead h2{font-size:17px}
+  .data-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .entrygrid{grid-template-columns:minmax(0,1fr) 98px}
+  .entrygrid .field.notes{grid-column:1}
+  .entrygrid .btn{grid-column:2}
+  .delivery-entry{grid-template-columns:minmax(0,1fr) 110px}
+  .delivery-entry .field:nth-child(1){grid-column:1}
+  .delivery-entry .field:nth-child(2){grid-column:2;grid-row:1}
+  .delivery-entry .field:nth-child(3){grid-column:1/3;grid-row:auto}
+  .delivery-entry .field:nth-child(4){grid-column:1/3}
+  .delivery-entry .btn{grid-column:1/3;width:100%}
+  .record-row,.record-row.abnormal{grid-template-columns:minmax(0,1fr) auto;gap:10px 8px;padding:14px 13px}
+  .record-reason{grid-column:1}
+  .record-qty{grid-column:2;grid-row:1;justify-content:flex-end}
+  .record-eta{grid-column:1;grid-row:2}
+  .record-row .record-actions,.record-row.abnormal .record-actions{grid-column:2;grid-row:2}
+  .record-note{grid-column:1/-1}
+  .record-actions button{padding:8px;min-height:38px}
+  .record-list-head{padding:11px 13px}
+  .audit-cards{grid-template-columns:1fr}
+}
+@media(max-width:410px){
+ .record-qty strong{font-size:19px}
+ .record-qty small{display:none}
+ .record-actions{gap:4px}
+ .record-actions button{font-size:10px;padding:7px}
+ .datewrap{width:100%}
+ .entrygrid .btn{padding:8px 9px}
+}
+
+/* V4.5: daily-delivery scan quality is independent of prior-day unpicked analysis. */
+.no-anomaly-row{display:flex;justify-content:space-between;align-items:center;gap:16px;border:1px solid #d8e6ed;border-radius:13px;background:#fff;padding:13px 15px;margin-bottom:14px;flex-wrap:wrap}
+.no-anomaly-choice{display:flex;align-items:flex-start;gap:12px;cursor:pointer;color:#24475b;min-width:0}
+.no-anomaly-choice input{width:21px;height:21px;accent-color:#118776;flex-shrink:0;margin-top:1px}
+.no-anomaly-choice strong{display:block;font-size:14px}
+.no-anomaly-choice small{display:block;color:#708a99;font-size:12px;margin-top:6px;line-height:1.5}
+.no-anomaly-status{border-radius:999px;background:#f1f5f7;color:#68818f;font-weight:850;padding:7px 12px;font-size:12px}
+.no-anomaly-status.good{background:#e5f5ed;color:#09816a}
+.no-anomaly-status.has{background:#fef1df;color:#9c6725}
+.exception-rates{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:620px){.no-anomaly-row{align-items:flex-start}.exception-rates{grid-template-columns:1fr}}
 </style>
 </head>
 <body><div class="topband"></div><main class="page">
-<header class="mast"><div class="brand"><div class="mark">G<i>/</i>F</div><h1>货代日报<small>FREIGHT FORWARDER DAILY REPORT</small></h1></div><div class="buttons"><span class="saved" id="saveStatus">本机自动保存 / Autosave</span><button class="btn" type="button" id="previewBtn">预览日报 / Preview</button><button class="btn primary" type="button" id="downloadBtn">下载 PNG ↓</button><button class="btn ghost" type="button" id="backupBtn">备份 / Backup</button></div></header>
-<section class="card"><div class="card-body"><div class="sectionhead"><div><div class="eyebrow">01 / REPORT SCOPE</div><h2>站点与日期 / Station &amp; Date</h2></div></div><div class="scoperow"><div class="field"><span class="label">站点 / Station</span><div class="stations"><button type="button" class="station active" data-station="MIA01">MIA01</button><button type="button" class="station" data-station="FLL01">FLL01</button><button type="button" class="station" data-station="WPB">WPB</button></div></div><label class="field datewrap"><span class="label">昨日任务 / Task date</span><input type="date" class="control" id="taskDate"></label><label class="field datewrap"><span class="label">查询截至 / Checked on</span><input type="date" class="control" id="checkDate"></label><p class="scopehint">只分析昨日未领任务的最新状态。<br>Track only unpicked parcels from the previous task day.</p></div></div></section>
-<section class="card"><div class="card-body"><div class="sectionhead"><div><div class="eyebrow">02 / SELECT DSP</div><h2>选择货代 / Select freight forwarders</h2><p>勾选才会出现在 PNG 中；点击「填写」切换编辑。 / Only checked DSPs appear in the report.</p></div><span id="selectedTag" class="tag">0 家已选择</span></div><div class="dsp-grid" id="dspList"></div><div class="dsp-count"><span>已勾选 / Selected: <strong id="selectedNames">无 / None</strong></span><span class="tiny">MIA01 / FLL01 / WPB 独立保存 / Separate site data</span></div></div></section>
-<section class="card" id="editorCard"><div class="card-body"><div class="sectionhead"><div><div class="eyebrow">03 / DATA ENTRY</div><h2 id="editTitle">请选择货代 / Choose a DSP</h2><p>只填写昨天的应领、已领，取件率自动计算。 / Previous-day pickup only.</p></div><span class="tag" id="editTag">未选择 / Not selected</span></div><div id="editorContent" hidden>
-<div class="data-grid"><label class="data-field"><span class="label">昨日应领 / Expected</span><input id="dueInput" class="control" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label><label class="data-field"><span class="label">昨日已领 / Picked up</span><input id="pickedInput" class="control" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label><label class="data-field readonly"><span class="label">昨日未领 / Unpicked</span><input id="unpickedInput" class="control" readonly placeholder="—"></label><label class="data-field rate"><span class="label">昨日取件率 / Pickup rate</span><input id="rateInput" class="control" readonly placeholder="—"></label></div><div class="alert" id="reconcile" hidden></div>
-<div class="rule"></div><div class="sectionhead"><div><h2>未领包裹分析 / Unpicked parcel analysis</h2><p>先选具体问题，系统自动归为已领取或仍未领取。 / Select a situation; grouping is automatic.</p></div><span class="tag" id="itemsTag">0 条 / 0 entries</span></div>
-<form class="entrybox" id="entryForm"><div class="entrygrid"><div class="field"><label class="label" for="reasonInput">具体情况 / Situation</label><div class="searchbox" id="searchBox"><input class="control" id="reasonInput" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions" placeholder="搜索或选择问题 / Search situations"><div class="suggest" id="suggestions" role="listbox"></div></div></div><label class="field"><span class="label">件数 / Parcels</span><input id="qtyInput" class="control" type="number" min="1" step="1" inputmode="numeric" placeholder="0"></label><label class="field notes"><span class="label">备注（选填） / Notes (optional)</span><input id="noteInput" class="control" type="text" maxlength="500" placeholder="例：错分至CXK / e.g. To CXK"></label><button type="submit" class="btn teal" id="addBtn">＋ 添加 / Add</button></div><div class="customcase" id="customCase" hidden><label class="field"><span class="label">自定义问题 / Custom situation（必填 / Required）</span><input class="control" id="customZh" type="text" maxlength="90" placeholder="例如：货代现场临时拒收"></label><label class="field"><span class="label">英文说明 / English description（选填 / Optional）</span><input class="control" id="customEn" type="text" maxlength="115" placeholder="e.g. Forwarder refused pickup on site"></label></div><div class="selected-help" id="choiceHelp">选择具体情况，填写件数。没有填写备注就不会在日报增加备注行。 / Notes only appear when entered.</div><button type="button" class="cancel-edit" id="cancelEdit" hidden>取消修改 / Cancel edit</button></form>
+<header class="mast"><div class="brand"><div class="mark">G<i>/</i>F</div><h1>货代日报<small>FREIGHT FORWARDER DAILY REPORT</small></h1></div><div class="buttons"><span class="saved" id="saveStatus">新日报 · 当前页面 / Fresh report · This tab</span><button class="btn mini" type="button" id="newReportBtn">＋ 新建空白日报 / New blank report</button><button class="btn" type="button" id="previewBtn">预览日报 / Preview</button><button class="btn primary" type="button" id="downloadBtn">下载清晰日报 PNG ↓</button><button class="btn" type="button" id="evidenceBtn">DMS 截图附件 ↓</button><button class="btn" type="button" id="downloadFullBtn">完整长图 ↓</button><button class="btn ghost" type="button" id="backupBtn">备份 / Backup</button></div></header>
+<section class="card"><div class="card-body"><div class="sectionhead"><div><div class="eyebrow">01 / REPORT SCOPE</div><h2>站点与日期 / Station &amp; Date</h2></div></div><div class="scoperow"><div class="field"><span class="label">站点 / Station</span><div class="stations"><button type="button" class="station active" data-station="MIA01">MIA01</button><button type="button" class="station" data-station="FLL01">FLL01</button><button type="button" class="station" data-station="WPB">WPB</button></div></div><label class="field datewrap"><span class="label">昨日任务 / Task date</span><input type="date" class="control" id="taskDate"></label><label class="field datewrap"><span class="label">查询截至 / Checked on</span><input type="date" class="control" id="checkDate"></label><p class="scopehint">昨日任务数据 + 截至查询日的未领状态跟进。<br>Yesterday’s performance · Latest status follow-up.</p></div></div></section>
+<section class="card"><div class="card-body"><div class="sectionhead"><div><div class="eyebrow">02 / SELECT DSP</div><h2>选择货代 / Select freight forwarders</h2><p>勾选后才会进入 PNG；删除货代前会二次确认。 / Only checked DSPs appear in PNG. Deletion requires confirmation.</p></div><span id="selectedTag" class="tag">0 家已选择</span></div><div class="dsp-grid" id="dspList"></div><div class="dsp-count"><span>已勾选 / Selected: <strong id="selectedNames">无 / None</strong></span><span class="tiny">MIA01 / FLL01 / WPB 可分别填写 / Separate station forms</span></div></div></section>
+<section class="card" id="editorCard"><div class="card-body"><div class="sectionhead"><div><div class="eyebrow">03 / DATA ENTRY</div><h2 id="editTitle">请选择货代 / Choose a DSP</h2><p>填写昨日取件与派送数据，两个比率均自动计算。 / Yesterday’s pickup and delivery rates are calculated automatically.</p></div><span class="tag" id="editTag">未选择 / Not selected</span></div><div id="editorContent" hidden>
+<div class="metric-section"><div class="metric-label"><span class="metric-dot teal-dot"></span>昨日取件 / Yesterday's pickup</div><div class="data-grid"><label class="data-field"><span class="label">昨日应领 / Expected pickup</span><input id="dueInput" class="control" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label><label class="data-field"><span class="label">昨日已领 / Picked up</span><input id="pickedInput" class="control" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label><label class="data-field readonly"><span class="label">昨日未领 / Unpicked</span><input id="unpickedInput" class="control" readonly placeholder="—"></label><label class="data-field rate"><span class="label">取件率 / Pickup rate</span><input id="rateInput" class="control" readonly placeholder="—"></label></div></div>
+<div class="metric-section delivery-metric"><div class="metric-label"><span class="metric-dot amber-dot"></span>昨日派送 / Yesterday's delivery <span class="metric-sub">独立于未领分析统计 / Tracked separately from unpicked parcels</span></div><div class="data-grid"><label class="data-field"><span class="label">昨日应派 / Expected delivery</span><input id="expectedDeliveryInput" class="control" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label><label class="data-field"><span class="label">昨日已送达 / Delivered</span><input id="deliveredInput" class="control" type="number" min="0" step="1" inputmode="numeric" placeholder="0"></label><label class="data-field readonly"><span class="label">昨日未送达 / Undelivered</span><input id="undeliveredInput" class="control" readonly placeholder="—"></label><label class="data-field rate"><span class="label">送达率 / Delivery rate</span><input id="deliveryRateInput" class="control" readonly placeholder="—"></label></div></div>
+<div class="rule"></div><div class="sectionhead"><div><h2>未领包裹分析 / Unpicked parcel analysis</h2><p>此处填写 A 已领取及 B 仍未领取；漏轨迹异常在下方独立填写。 / Enter A and B here; record missing scans separately below.</p></div><span class="tag" id="itemsTag">0 条 / 0 entries</span></div>
+<form class="entrybox" id="entryForm"><div class="entrygrid"><div class="field"><label class="label" for="reasonInput">具体情况 / Situation</label><div class="searchbox" id="searchBox"><input class="control" id="reasonInput" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions" placeholder="搜索或选择问题 / Search situations"><div class="suggest" id="suggestions" role="listbox"></div></div></div><label class="field"><span class="label">件数 / Parcels</span><input id="qtyInput" class="control" type="number" min="1" step="1" inputmode="numeric" placeholder="0"></label><label class="field notes"><span class="label">备注（选填） / Notes (optional)</span><input id="noteInput" class="control" type="text" maxlength="500" placeholder="例：错分至CXK / e.g. To CXK"></label><button type="submit" class="btn teal" id="addBtn">＋ 添加 / Add</button></div><div class="customcase" id="customCase" hidden><label class="field"><span class="label">自定义问题 / Custom situation（必填 / Required）</span><input class="control" id="customZh" type="text" maxlength="90" placeholder="例如：货代现场临时拒收"></label><label class="field"><span class="label">英文说明 / English description（选填 / Optional）</span><input class="control" id="customEn" type="text" maxlength="115" placeholder="e.g. Forwarder refused pickup on site"></label></div><div class="selected-help" id="choiceHelp">选择具体情况自动归类 A / B；异常领件请到下方独立填写。 / A/B are auto-grouped. Abnormal pickups have a separate form below.</div><button type="button" class="cancel-edit" id="cancelEdit" hidden>取消修改 / Cancel edit</button></form>
 <div class="two-groups"><div class="group-card"><div class="group-title"><div><h3>A · 昨日未领 → 已领取或已签收</h3><small>Previously unpicked · Picked up or delivered</small></div><strong id="yesTotal">0</strong></div><div id="yesItems"></div></div><div class="group-card"><div class="group-title pending"><div><h3>B · 昨日未领 → 仍未领取或待核实</h3><small>Previously unpicked · Still unpicked / To verify</small></div><strong id="noTotal">0</strong></div><div id="noItems"></div></div></div>
-<div class="rule"></div><div class="sectionhead"><div><h2>DMS 截图 / DMS Screenshots</h2><p>当前货代可上传多张图片，自动附在该货代日报下面。 / Multiple images per DSP.</p></div><span class="tag" id="photoTag">0 张 / 0 images</span></div><div class="uploadbar"><div><strong>上传该货代昨日的 DMS 截图 / Attach yesterday's DMS screenshots</strong><small>JPG · PNG · WEBP，截图不参与数据计算 / Screenshots are supporting evidence.</small></div><button type="button" class="btn" id="uploadBtn">＋ 上传 / Upload</button><input id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden></div><div class="pics" id="photoList"></div>
+<div class="rule"></div><div class="sectionhead"><div><h2>昨日派送 · 异常领件 / Abnormal pickup scans</h2><p>独立统计昨日派送任务的漏轨迹异常（如未领签收、漏签出、未到站签收），不参与昨日未领件数核对。<br>Missing scans in yesterday’s delivery tasks; tracked separately from unpicked parcels.</p></div><span class="tag" id="abnTotal">0 件</span></div>
+<form class="entrybox" id="abnForm"><div class="anomaly-entry">
+<label class="field"><span class="label">异常情况 / Missing-scan situation</span><select class="control" id="abnReason"><option value="">选择异常 / Select anomaly</option></select></label>
+<label class="field"><span class="label">件数 / Parcels</span><input class="control" id="abnQty" type="number" min="1" step="1" inputmode="numeric" placeholder="0"></label>
+<label class="field notes"><span class="label">备注（选填）/ Notes</span><input class="control" id="abnNote" type="text" maxlength="500" placeholder="例如：缺少站点出站扫描"></label>
+<button type="submit" class="btn teal" id="abnAddBtn">＋ 添加 / Add</button></div>
+<div class="customcase" id="abnCustomWrap" hidden><label class="field"><span class="label">自定义异常 / Custom anomaly</span><input class="control" type="text" id="abnCustomZh" maxlength="90" placeholder="填写中文具体情况"></label><label class="field"><span class="label">英文说明 / English</span><input class="control" type="text" id="abnCustomEn" maxlength="115" placeholder="English description (optional)"></label></div>
+<button type="button" class="cancel-edit" id="abnCancel" hidden>取消修改 / Cancel edit</button></form>
+<div class="exception-panel">
+<div class="no-anomaly-row"><label class="no-anomaly-choice"><input id="abnNoneCheck" type="checkbox"><span><strong>已核查：无异常 / Confirmed no abnormalities</strong><small>没有漏轨迹异常时勾选；有异常记录时自动取消。/ Select only after checking missing scans.</small></span></label><span class="no-anomaly-status" id="abnStatusTag">待核查 / Pending review</span></div>
+<div class="exception-rates"><div class="exception-rate"><span class="caption">异常领件件数 / Abnormal parcels</span><span class="value" id="abnCountCard">0</span></div><div class="exception-rate"><span class="caption">异常占昨日应派比例 / % of expected deliveries</span><span class="value" id="abnDeliveryRate">—</span></div></div><div class="follow-list" id="abnItems"></div><div class="exception-footnote">异常领件以昨日应派件数为分母，独立于未领分析及未送达原因。相同包裹只选一条最具体的异常。 / Rate = abnormal parcels ÷ yesterday’s expected deliveries; no double-counting within this section.</div></div>
+<div class="rule"></div><div class="sectionhead"><div><h2>昨日未送达跟进 / Undelivered follow-up</h2><p>只分析昨日应派却未送达的件数；不同预计送达日期分别记录。 / Track yesterday's undelivered parcels and ETA.</p></div><span class="tag" id="deliveryCountTag">0 件 / 0 parcels</span></div>
+<form class="entrybox" id="deliveryForm"><div class="delivery-entry">
+<label class="field"><span class="label">未送达原因 / Reason</span><select class="control" id="deliveryReason"><option value="">选择原因 / Select a reason</option><option value="inprogress">派送中 / Out for delivery</option><option value="closed">商业地址关门 / Business closed</option><option value="refused">客户拒收 / Customer refused</option><option value="moved">收件方搬迁 / Recipient relocated</option><option value="address">地址异常 / Address issue</option><option value="returned">退回站点 / Returned to station</option><option value="redelivery">重新安排派送 / Redelivery scheduled</option><option value="other">其他原因 / Other</option></select></label>
+<label class="field" id="deliveryCustomWrap" hidden><span class="label">自定义原因 / Custom reason</span><input class="control" id="deliveryCustom" placeholder="填写具体原因 / Enter a reason" maxlength="95"></label>
+<label class="field"><span class="label">件数 / Parcels</span><input class="control" id="deliveryQty" type="number" min="1" step="1" inputmode="numeric" placeholder="0"></label>
+<label class="field"><span class="label">预计送达 / ETA</span><input class="control" id="deliveryETA" type="date"></label>
+<label class="field"><span class="label">备注（选填） / Notes</span><input class="control" id="deliveryNote" type="text" maxlength="400" placeholder="无需备注可留空 / Optional"></label>
+<button type="submit" class="btn teal" id="deliveryAddBtn">＋ 添加 / Add</button></div><div class="fine delivery-hint">无法确定送达日期时，可留空显示「待确认」；记录可直接删除，8 秒内可以撤销。</div><button type="button" class="cancel-edit" id="deliveryCancel" hidden>取消修改 / Cancel edit</button></form>
+<div class="follow-list" id="deliveryList"></div>
+<div class="rule"></div><div class="sectionhead"><div><h2>DMS 截图 / DMS Screenshots</h2><p>每家货代可上传多张。建议日报与截图附件分别下载，正文不会被长截图缩小。 / Export a readable report and DMS evidence separately.</p></div><span class="tag" id="photoTag">0 张 / 0 images</span></div><div class="uploadbar"><div><strong>上传该货代昨日的 DMS 截图 / Attach yesterday's DMS screenshots</strong><small>JPG · PNG · WEBP，截图不参与数据计算 / Screenshots are supporting evidence.</small></div><button type="button" class="btn" id="uploadBtn">＋ 上传 / Upload</button><input id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden></div><div class="pics" id="photoList"></div>
+<div class="rule"></div><div class="sectionhead audit-header"><div><h2>最后核对 / Final Data Check</h2><p>例如：昨日未领100件，A+B必须合计100件；昨日未送达也要与原因总数一致。异常领件单独统计，不参与这两项核对。<br>A+B must match yesterday’s unpicked; undelivered reasons must match undelivered totals. Abnormal pickup scans are tracked separately. Discrepancies do not block export.</p></div><span class="tag">仅提醒 / Advisory only</span></div>
+<div class="audit-cards">
+<div class="audit-card"><h3>① 昨日未领件数核对 / Unpicked reconciliation</h3>
+<div class="audit-figures"><div class="audit-figure"><small>昨日未领 / Expected</small><strong id="auditUnpickedExpected">—</strong></div><div class="audit-figure"><small>已填写分析 / Classified</small><strong id="auditUnpickedFilled">0</strong></div><div class="audit-figure" id="auditUnpickedDiffWrap"><small>差额 / Difference</small><strong id="auditUnpickedDiff">—</strong></div></div>
+<div class="audit-detail">已填写明细 / Breakdown：<strong id="auditUnpickedParts">A 0 + B 0 = 0</strong></div><div class="audit-result soft" id="reconcile">请填写昨日应领和已领 / Enter pickup totals</div></div>
+<div class="audit-card"><h3>② 昨日未送达件数核对 / Undelivered reconciliation</h3>
+<div class="audit-figures"><div class="audit-figure"><small>昨日未送达 / Expected</small><strong id="auditDeliveryExpected">—</strong></div><div class="audit-figure"><small>已填写原因 / Classified</small><strong id="auditDeliveryFilled">0</strong></div><div class="audit-figure" id="auditDeliveryDiffWrap"><small>差额 / Difference</small><strong id="auditDeliveryDiff">—</strong></div></div>
+<div class="audit-detail">未送达原因合计 / Follow-up reasons：<strong id="auditDeliveryRows">0 件 · 0 条记录</strong></div><div class="audit-result soft" id="deliveryReconcile">请填写昨日应派和已送达 / Enter delivery totals</div></div>
+</div>
 </div><div class="fine" id="emptyEditor">先勾选一个货代，再点击「填写」。 / Check a DSP, then click Edit.</div></div></section>
-<div class="bottomnote">草稿仅保存在当前浏览器 / Drafts are stored locally. <button type="button" class="btn ghost mini" id="restoreBtn">恢复备份 / Restore backup</button><input type="file" accept="application/json,.json" id="restoreInput" hidden></div>
+<div class="bottomnote">每次打开自动开始空白日报；关闭或刷新前请先下载备份。仅保存DSP名单，不保存每日填写数量。 / Fresh form on every open; back up before closing or refreshing. DSP names stay saved, daily data does not. <button type="button" class="btn ghost mini" id="restoreBtn">恢复备份 / Restore backup</button><input type="file" accept="application/json,.json" id="restoreInput" hidden></div>
 </main>
-<div class="overlay" id="previewOverlay" role="dialog" aria-modal="true" aria-label="日报预览"><div class="modal"><div class="modal-head"><strong>货代日报 · PNG预览 / Report preview</strong><div class="buttons"><button class="btn mini primary" id="previewDownload">下载 PNG</button><button class="btn mini" id="closePreview">关闭 ✕</button></div></div><div class="modal-body"><canvas id="reportCanvas"></canvas></div></div></div>
+<div class="overlay" id="previewOverlay" role="dialog" aria-modal="true" aria-label="日报预览"><div class="modal"><div class="modal-head"><strong>货代日报 · PNG预览 / Report preview</strong><div class="buttons"><button class="btn mini primary" id="previewDownload">下载清晰日报</button><button class="btn mini" id="closePreview">关闭 ✕</button></div></div><div class="modal-body"><canvas id="reportCanvas"></canvas></div></div></div>
 <div class="overlay" id="imageOverlay"><img id="zoomedImg" alt="DMS截图"><button class="btn" style="position:absolute;right:22px;top:22px" id="closeZoom">关闭 ✕</button></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 (()=>{'use strict';
@@ -62,13 +289,23 @@ const defRows=[
 ['G1','no','其他待核实','Other / To verify','昨日任务至今仍未到站','Previous-day task · not yet arrived'],
 ['G3','no','其他待核实','Other / To verify','系统重复推送任务','Duplicate task push'],
 ['A6','yes','今日领取后派送异常','Delivery exception after pickup','派送异常暂未退回','Delivery exception · not yet returned to station'],
-['A7','yes','系统显示未领，但已签收','Unpicked flag · already delivered','重复推送判定漏领，已签收','Duplicate task flagged unpicked · already delivered'],
-['A8','yes','系统显示未领，但已签收','Unpicked flag · already delivered','未领签收','Marked unpicked · confirmed delivered'],
+['A7','abn','系统判定异常','System status mismatch','重复推送判定漏领，已签收','Duplicate task flagged unpicked · already delivered'],
+['A8','abn','领件轨迹缺失','Missing pickup scans','未领签收','Marked unpicked · confirmed delivered'],
 ['E4','no','退回及转派','Returns & reassignment','下架重派','Removed from shelf · reassigned for delivery'],
 ['G5','no','其他待核实','Other / To verify','重复推送判定漏领','Duplicate task flagged unpicked'],
-['G7','no','其他待核实','Other / To verify','解绑逻辑变更导致漏签','DSP unbinding change · pickup scan missing'],
+['G7','abn','系统判定异常','System status mismatch','解绑逻辑变更导致漏签','DSP unbinding change · pickup scan missing'],
 ['G6','no','其他待核实','Other / To verify','异常无法领件','Pickup blocked by an exception'],
 ['D7','no','上架','Shelving','破损上架','Damaged parcel · shelved'],
+['M1','abn','签出轨迹缺失','Missing outbound scans','未站点签出，已有领件并签收','No station outbound scan · pickup and delivery confirmed'],
+['M2','abn','到站及领件轨迹缺失','Missing arrival & pickup scans','未站点到件、未领件扫描，已签收','No station arrival or pickup scan · delivered'],
+['M3','abn','到站轨迹缺失','Missing arrival scans','未站点到件，已有领件并签收','No station arrival scan · pickup and delivery confirmed'],
+['M4','abn','签出及领件轨迹缺失','Missing outbound & pickup scans','未站点签出、未领件扫描，已签收','No station outbound or pickup scan · delivered'],
+['M5','abn','集包轨迹缺失','Missing bagging scans','未二次集包，已有领件并签收','No second-bagging scan · pickup and delivery confirmed'],
+['M6','abn','领件轨迹缺失','Missing pickup scans','未领件扫描，但有妥投失败记录','No pickup scan · delivery exception recorded'],
+['M7','abn','签出轨迹缺失','Missing outbound scans','未站点签出，已有领件但暂未签收','No station outbound scan · picked up, not yet delivered'],
+['M8','abn','到站轨迹缺失','Missing arrival scans','未站点到件，已有领件但暂未签收','No station arrival scan · picked up, not yet delivered'],
+['M9','abn','签出及领件轨迹缺失','Missing outbound & pickup scans','未站点签出、未领件扫描，但有派送异常','No outbound or pickup scan · delivery exception recorded'],
+['X3','abn','其他自定义','Other custom situations','自定义漏轨迹异常 / Custom missing-scan issue','Custom missing-scan issue'],
 ['X1','yes','其他自定义','Other custom situations','自定义问题（已领取 / 已签收）','Custom situation · picked up or delivered'],
 ['X2','no','其他自定义','Other custom situations','自定义问题（仍未领 / 待核实）','Custom situation · still unpicked or pending verification']
 ];
@@ -79,49 +316,150 @@ const PRESETS_ALL=[...new Set(Object.values(PRESETS_BY_SITE).flat())];
 const presets=station=>PRESETS_BY_SITE[station]||[];
 const allDefs=()=>[...defs,...(model.customSituations||[])];
 const getDef=id=>defMap[id]||(model.customSituations||[]).find(d=>d.id===id);
-const isCustom=d=>!!d&&(d.id==='X1'||d.id==='X2'||d.custom===true);
+const isCustom=d=>!!d&&(d.id==='X1'||d.id==='X2'||d.id==='X3'||d.custom===true);
 const customGroup=sect=>({sect,group:'其他自定义',enGroup:'Other custom situations'});
 const today=()=>{const a=new Date();return `${a.getFullYear()}-${String(a.getMonth()+1).padStart(2,'0')}-${String(a.getDate()).padStart(2,'0')}`};
 const yesterday=s=>{let d=new Date(s+'T12:00:00');d.setDate(d.getDate()-1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
 const fmt=v=>v==null||!Number.isFinite(v)?'—':Math.round(v).toLocaleString('en-US');
 const valid=v=>v!==''&&v!=null&&Number.isSafeInteger(+v)&&+v>=0?+v:null;
 const esc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-const makeDSP=name=>({id:uid(),name,selected:false,due:'',picked:'',items:{},photos:[]});
-const empty=(station='MIA01',taskDate=yesterday(today()))=>({station,taskDate,checkDate:today(),carriers:presets(station).map(makeDSP),customSituations:[]});
-let model=empty(),active=null,choice=null,editId=null,db=null,saveTimer=null,toastTimer=null,drawSeq=0,loading=false;
+const makeDSP=name=>({id:uid(),name,selected:false,due:'',picked:'',expectedDelivery:'',delivered:'',abnormalReviewed:false,undeliveredRows:[],items:{},photos:[]});
+const empty=(station='MIA01',taskDate=yesterday(today()))=>({station,taskDate,checkDate:today(),carriers:presets(station).map(makeDSP),removedDSPs:[],customSituations:[]});
+let model=empty(),active=null,choice=null,editId=null,deliveryEditId=null,abnEditId=null,db=null,saveTimer=null,toastTimer=null,drawSeq=0,loading=false;
 function storageKey(station=model.station,date=model.taskDate){return `gofo-ff-v6-${station}-${date}`}
+// Permanent settings contain DSP names ONLY. Report values, notes, screenshots and selections are NOT persisted.
+const currentSessionReports=new Map();
+const rosterKey=station=>`gofo-ff-dsp-roster-v7-${station}`;
+function readRoster(station){
+ try {const r=JSON.parse(localStorage.getItem(rosterKey(station))||'null');if(r&&Array.isArray(r.names))return {names:r.names.map(n=>String(n).toUpperCase().slice(0,30)).filter(Boolean).slice(0,18),removedDSPs:Array.isArray(r.removedDSPs)?r.removedDSPs.map(n=>String(n).toUpperCase()):[]}}catch{}
+ return null;
+}
+function keepRoster(){
+ try{localStorage.setItem(rosterKey(model.station),JSON.stringify({names:[...new Set(model.carriers.map(c=>c.name))],removedDSPs:model.removedDSPs||[]}))}catch{}
+}
+function freshReport(station='MIA01',date=yesterday(today())){
+ const base=empty(station,date),savedRoster=readRoster(station);
+ if(savedRoster){base.carriers=savedRoster.names.map(makeDSP);base.removedDSPs=savedRoster.removedDSPs}
+ return base;
+}
+async function migrateNamesOnlyFromLegacy(station){
+ if(readRoster(station))return;
+ const key=storageKey(station,yesterday(today()));let raw=null;
+ try{raw=await idbRead(key)}catch{}
+ if(!raw){try{raw=JSON.parse(localStorage.getItem(key)||'null')}catch{}}
+ if(!Array.isArray(raw?.carriers))return;
+ try{localStorage.setItem(rosterKey(station),JSON.stringify({
+   names:[...new Set(raw.carriers.map(c=>String(c.name||'').trim().toUpperCase()).filter(Boolean))].slice(0,18),
+   removedDSPs:Array.isArray(raw.removedDSPs)?raw.removedDSPs:[]
+ }))}catch{}
+}
+
 function carrier(){return model.carriers.find(c=>c.id===active&&c.selected)||null}
 function selected(){return model.carriers.filter(c=>c.selected)}
 function baseline(c){let a=valid(c.due),b=valid(c.picked);return a===null||b===null?null:a-b}
 function rate(c){const a=valid(c.due),b=valid(c.picked);return a>0&&b!==null?`${(100*b/a).toFixed(2)}%`:'—'}
+function deliveryMissing(c){const a=valid(c.expectedDelivery),b=valid(c.delivered);return a===null||b===null?null:a-b}
+function deliveryRate(c){const a=valid(c.expectedDelivery),b=valid(c.delivered);return a>0&&b!==null?`${(100*b/a).toFixed(2)}%`:'—'}
+function undeliveredListed(c){return (c.undeliveredRows||[]).reduce((n,r)=>n+(valid(r.qty)||0),0)}
+const deliveryReasons={inprogress:['派送中','Out for delivery'],closed:['商业地址关门','Business closed'],refused:['客户拒收','Customer refused'],moved:['收件方搬迁','Recipient relocated'],address:['地址异常','Address issue'],returned:['退回站点','Returned to station'],redelivery:['重新安排派送','Redelivery scheduled'],other:['其他原因','Other']};
+function deliveryReasonText(r){let pair=deliveryReasons[r.reason]||deliveryReasons.other;return [r.reason==='other'&&r.custom?`其他：${r.custom}`:pair[0],pair[1]]}
 function parcelCount(c,section){return Object.entries(c.items||{}).reduce((n,[id,p])=>n+(getDef(id)?.sect===section?(valid(p.qty)||0):0),0)}
+function anomalyCount(c){return parcelCount(c,'abn')}
+function abnormalStatus(c){return anomalyCount(c)>0?'has':c.abnormalReviewed?'none':'pending'}
+function abnormalStatusLabel(c){const s=abnormalStatus(c);return s==='has'?'已记录异常 / Abnormal scans logged':s==='none'?'无异常 / No abnormalities':'待核查 / Pending review'}
+function anomalyRate(c){const base=valid(c.expectedDelivery);return base>0&&abnormalStatus(c)!=='pending'?`${(100*anomalyCount(c)/base).toFixed(2)}%`:'—'}
 function analysisGap(c){const b=baseline(c);return b==null?null:b-parcelCount(c,'yes')-parcelCount(c,'no')}
 function notify(s){const el=$('toast');el.textContent=s;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3300)}
+// Immediate, reversible deletion; works in browsers and embedded previews where window.confirm is blocked.
+function deleteUndo(message, remove, restore){
+ const currentModel=model;
+ remove();changed();
+ const el=$('toast');el.replaceChildren();
+ const msg=document.createElement('span');msg.textContent=message;
+ const undo=document.createElement('button');undo.type='button';undo.className='toast-undo';undo.textContent='撤销删除 / Undo';
+ undo.addEventListener('click',()=>{
+   if(model!==currentModel){notify('已切换站点或日期，无法在当前页面撤销 / Cannot undo across reports');return}
+   restore();changed();notify('已撤销，记录已恢复 / Entry restored');
+ });
+ el.append(msg,undo);el.classList.add('show');
+ clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),8500);
+}
 function openDB(){return new Promise((res,rej)=>{try{const req=indexedDB.open('gofo-ff-report-v6',1);req.onupgradeneeded=()=>req.result.createObjectStore('reports');req.onsuccess=()=>res(req.result);req.onerror=()=>rej(req.error)}catch(e){rej(e)}})}
 function idbRead(key){return new Promise((res,rej)=>{if(!db)return rej(Error('No DB'));let r=db.transaction('reports').objectStore('reports').get(key);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
 function idbSave(key,data){return new Promise((res,rej)=>{if(!db)return rej(Error('No DB'));const tx=db.transaction('reports','readwrite');tx.objectStore('reports').put(data,key);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
-async function save(){const copy=structuredClone(model);try{await idbSave(storageKey(),copy);$('saveStatus').textContent='✓ 已保存 / Saved'}catch(e){try{const plain=structuredClone(copy);plain.carriers.forEach(c=>c.photos=[]);localStorage.setItem(storageKey(),JSON.stringify(plain));$('saveStatus').textContent='✓ 文本已保存（截图请备份）'}catch{notify('本机保存失败，请下载备份 / Please backup')}}}
+async function save(){currentSessionReports.set(storageKey(),structuredClone(model));keepRoster();$('saveStatus').textContent='✓ 当前页面已记录 / In-page draft'}
 function changed(){if(loading)return;$('saveStatus').textContent='保存中 / Saving…';clearTimeout(saveTimer);saveTimer=setTimeout(save,500);render()}
 function setStationButtons(){document.querySelectorAll('[data-station]').forEach(b=>b.classList.toggle('active',b.dataset.station===model.station))}
-function renderDSPs(){const node=$('dspList');node.innerHTML=model.carriers.map(c=>`<div class="dsp ${c.selected?'checked':''} ${active===c.id?'active':''}"><label><input type="checkbox" data-toggle="${esc(c.id)}" ${c.selected?'checked':''}><span>${esc(c.name)}</span></label><button class="dsp-edit" data-editcarrier="${esc(c.id)}" ${!c.selected?'disabled':''}>${active===c.id?'填写中':'填写 / Edit'}</button>${!presets(model.station).includes(c.name)?`<button class="dsp-remove" title="删除此DSP / Remove DSP" data-delcarrier="${esc(c.id)}">×</button>`:''}</div>`).join('')+'<button class="dsp-add" id="addDSP" type="button">＋ 添加其他 DSP / Add DSP</button>';
+function renderDSPs(){const node=$('dspList');node.innerHTML=model.carriers.map(c=>`<div class="dsp ${c.selected?'checked':''} ${active===c.id?'active':''}"><label><input type="checkbox" data-toggle="${esc(c.id)}" ${c.selected?'checked':''}><span>${esc(c.name)}</span></label><button class="dsp-edit" data-editcarrier="${esc(c.id)}" ${!c.selected?'disabled':''}>${active===c.id?'填写中':'填写 / Edit'}</button><button class="dsp-remove" title="删除此DSP / Remove DSP" aria-label="删除 ${esc(c.name)} / Remove DSP" data-delcarrier="${esc(c.id)}">×</button></div>`).join('')+'<button class="dsp-add" id="addDSP" type="button">＋ 添加其他 DSP / Add DSP</button>';
 const ar=selected();$('selectedTag').textContent=`${ar.length} 家已选择 / ${ar.length} selected`;$('selectedNames').textContent=ar.length?ar.map(c=>c.name).join(' · '):'无 / None'}
 function renderEditor(){const c=carrier();$('editorContent').hidden=!c;$('emptyEditor').hidden=!!c;$('editTitle').textContent=c?`${c.name} · 昨日数据 / Yesterday's data`:'请选择货代 / Choose a DSP';$('editTag').textContent=c?`${model.station} · ${c.name}`:'未选择 / Not selected';if(!c)return;
-$('dueInput').value=c.due;$('pickedInput').value=c.picked;$('unpickedInput').value=fmt(baseline(c));$('rateInput').value=rate(c);const gap=analysisGap(c),msg=$('reconcile'),bl=baseline(c);if(bl!==null&&bl<0){msg.textContent='⚠ 昨日已领不能超过昨日应领 / Picked up exceeds expected.';msg.className='alert';msg.hidden=false}else if(gap!==null&&gap<0){msg.textContent=`⚠ 分类件数超过昨日未领 ${fmt(-gap)} 件，请核对。 / ${fmt(-gap)} parcels over the unpicked total.`;msg.className='alert';msg.hidden=false}else if(gap!==null&&gap>0){msg.textContent=`还有 ${fmt(gap)} 件未分类（不自动当作仍未领取）。 / ${fmt(gap)} parcels are not classified yet.`;msg.className='alert soft';msg.hidden=false}else if(bl!==null){msg.textContent='✓ 分类件数与昨日未领一致 / Reconciled';msg.className='alert good';msg.hidden=false}else msg.hidden=true;
-for(const sect of ['yes','no']){let total=parcelCount(c,sect);$(sect+'Total').textContent=fmt(total);const rowList=allDefs().filter(d=>d.sect===sect&&valid(c.items?.[d.id]?.qty)>0);let groups=[...new Set(rowList.map(d=>d.group))],out='';for(const group of groups){let data=rowList.filter(d=>d.group===group),subtotal=data.reduce((n,d)=>n+valid(c.items[d.id].qty),0),groupEn=data[0].enGroup;out+=`<div class="subgroup"><span>${esc(group)} / ${esc(groupEn)}</span><strong>${fmt(subtotal)}</strong></div>`;for(const d of data){let p=c.items[d.id];out+=`<div class="problem"><div class="problem-text"><b>${esc(d.zh)}</b><span>${esc(d.en)}</span></div><strong class="num">${fmt(p.qty)}</strong><button type="button" class="iconbtn" data-change="${d.id}" title="修改 / Edit">✎</button><button type="button" class="iconbtn" data-delete="${d.id}" title="删除 / Delete">×</button></div>`;if(p.note?.trim())out+=`<div class="noteline"><b>备注 / Notes：</b>${esc(p.note)}</div>`;}}
-$(sect+'Items').innerHTML=out||`<div class="blank">暂无明细 / No entries yet</div>`}let n=Object.keys(c.items||{}).filter(id=>valid(c.items[id]?.qty)>0&&getDef(id)).length;$('itemsTag').textContent=`${n} 条 / ${n} entries`;renderPictures()}
+$('dueInput').value=c.due;$('pickedInput').value=c.picked;$('unpickedInput').value=fmt(baseline(c));$('rateInput').value=rate(c);$('expectedDeliveryInput').value=c.expectedDelivery||'';$('deliveredInput').value=c.delivered||'';$('undeliveredInput').value=fmt(deliveryMissing(c));$('deliveryRateInput').value=deliveryRate(c);const a=parcelCount(c,'yes'),b=parcelCount(c,'no'),classified=a+b;
+const target=baseline(c),gap=target===null?null:target-classified;
+$('auditUnpickedExpected').textContent=fmt(target);
+$('auditUnpickedFilled').textContent=fmt(classified);
+$('auditUnpickedParts').textContent=`A ${fmt(a)} + B ${fmt(b)} = ${fmt(classified)} 件`;
+$('auditUnpickedDiff').textContent=gap===null?'—':gap===0?'0':(gap>0?`少 ${fmt(gap)}`:`多 ${fmt(-gap)}`);
+$('auditUnpickedDiffWrap').dataset.color=gap===null?'neutral':gap===0?'good':'bad';
+const msg=$('reconcile');
+if(target===null){msg.textContent='请填写昨日应领、已领后自动核对 / Enter expected and picked up';msg.className='audit-result soft'}
+else if(target<0){msg.textContent='⚠ 昨日已领超过应领，请检查 / Picked up exceeds expected';msg.className='audit-result warn'}
+else if(gap===0){msg.textContent=`✓ 核对一致：昨日未领 ${fmt(target)} = 分类合计 ${fmt(classified)} / Matched`;msg.className='audit-result good'}
+else{msg.textContent=gap>0?`⚠ 还差 ${fmt(gap)} 件未填写原因 / ${fmt(gap)} parcels still unclassified`:`⚠ 分类超出 ${fmt(-gap)} 件，请检查重复或数量 / ${fmt(-gap)} parcels over total`;msg.className='audit-result warn'}
+const expectedUndelivered=deliveryMissing(c),listedUndelivered=undeliveredListed(c),deliveryDiff=expectedUndelivered===null?null:expectedUndelivered-listedUndelivered;
+$('auditDeliveryExpected').textContent=fmt(expectedUndelivered);
+$('auditDeliveryFilled').textContent=fmt(listedUndelivered);
+$('auditDeliveryDiff').textContent=deliveryDiff===null?'—':deliveryDiff===0?'0':(deliveryDiff>0?`少 ${fmt(deliveryDiff)}`:`多 ${fmt(-deliveryDiff)}`);
+$('auditDeliveryDiffWrap').dataset.color=deliveryDiff===null?'neutral':deliveryDiff===0?'good':'bad';
+$('auditDeliveryRows').textContent=`${fmt(listedUndelivered)} 件 · ${(c.undeliveredRows||[]).filter(r=>valid(r.qty)>0).length} 条记录`;
+const dg=$('deliveryReconcile');
+if(expectedUndelivered===null){dg.textContent='请填写昨日应派、已送达后自动核对 / Enter expected and delivered';dg.className='audit-result soft'}
+else if(expectedUndelivered<0){dg.textContent='⚠ 昨日已送达超过应派，请检查 / Delivered exceeds expected';dg.className='audit-result warn'}
+else if(deliveryDiff===0){dg.textContent=`✓ 核对一致：昨日未送达 ${fmt(expectedUndelivered)} = 原因合计 ${fmt(listedUndelivered)} / Matched`;dg.className='audit-result good'}
+else{dg.textContent=deliveryDiff>0?`⚠ 还差 ${fmt(deliveryDiff)} 件未填写未送达原因 / ${fmt(deliveryDiff)} parcels need reasons`:`⚠ 原因分类超出 ${fmt(-deliveryDiff)} 件，请检查 / ${fmt(-deliveryDiff)} over total`;dg.className='audit-result warn'};
+$('abnTotal').textContent=fmt(anomalyCount(c))+' 件';
+$('abnCountCard').textContent=fmt(anomalyCount(c));$('abnDeliveryRate').textContent=anomalyRate(c);
+$('abnNoneCheck').checked=abnormalStatus(c)==='none';$('abnNoneCheck').disabled=anomalyCount(c)>0;
+$('abnStatusTag').textContent=abnormalStatusLabel(c);$('abnStatusTag').className='no-anomaly-status '+(abnormalStatus(c)==='none'?'good':abnormalStatus(c)==='has'?'has':'');
+for(const sect of ['yes','no']){let total=parcelCount(c,sect);if(sect!=='abn')$(sect+'Total').textContent=fmt(total);const rowList=allDefs().filter(d=>d.sect===sect&&valid(c.items?.[d.id]?.qty)>0);let groups=[...new Set(rowList.map(d=>d.group))],out='';for(const group of groups){let data=rowList.filter(d=>d.group===group),subtotal=data.reduce((n,d)=>n+valid(c.items[d.id].qty),0),groupEn=data[0].enGroup;out+=`<div class="subgroup"><span>${esc(group)} / ${esc(groupEn)}</span><strong>${fmt(subtotal)}</strong></div>`;for(const d of data){let p=c.items[d.id];out+=`<div class="problem"><div class="problem-text"><b>${esc(d.zh)}</b><span>${esc(d.en)}</span></div><strong class="num">${fmt(p.qty)}</strong><button type="button" class="iconbtn" data-change="${d.id}" title="修改 / Edit" aria-label="编辑 ${esc(d.zh)}">✎</button><button type="button" class="iconbtn" data-delete="${d.id}" title="删除 / Delete" aria-label="删除 ${esc(d.zh)}">×</button></div>`;if(p.note?.trim())out+=`<div class="noteline"><b>备注 / Notes：</b>${esc(p.note)}</div>`;}}
+$(sect+'Items').innerHTML=out||`<div class="blank">暂无明细 / No entries yet</div>`}let n=Object.keys(c.items||{}).filter(id=>valid(c.items[id]?.qty)>0&&getDef(id)).length;$('itemsTag').textContent=`${n} 条 / ${n} entries`;renderDelivery();renderAbnormal();renderPictures()}
+
+function resetAbnormalForm(){abnEditId=null;$('abnForm').reset();$('abnCustomWrap').hidden=true;$('abnAddBtn').textContent='＋ 添加 / Add';$('abnCancel').hidden=true}
+function renderAbnormal(){const c=carrier();if(!c)return;const el=$('abnReason'),previous=el.value;
+const opts=allDefs().filter(d=>d.sect==='abn');el.innerHTML='<option value="">选择漏轨迹问题 / Select a missing-scan issue</option>'+opts.map(d=>`<option value="${esc(d.id)}">${esc(d.zh)} / ${esc(d.en)}</option>`).join('');el.value=opts.some(d=>d.id===previous)?previous:'';
+const rows=opts.filter(d=>valid(c.items?.[d.id]?.qty)>0);
+let html=`<div class="record-list-head"><strong>异常领件记录 / Missing-scan records</strong><span>${rows.length} 条 / entries</span></div>`;
+for(const d of rows){const p=c.items[d.id];html+=`<div class="record-row abnormal" data-abnormal-id="${esc(d.id)}">
+<div class="record-reason"><b>${esc(d.zh)}</b><small>${esc(d.en)}</small></div>
+<div class="record-qty"><strong>${fmt(p.qty)}</strong><small>件 / parcels</small></div>
+<div class="record-actions"><button type="button" class="record-edit" data-abn-edit="${esc(d.id)}" aria-label="编辑 ${esc(d.zh)}">✎ 编辑 / Edit</button><button type="button" class="record-delete" data-abn-del="${esc(d.id)}" aria-label="删除 ${esc(d.zh)}">× 删除 / Delete</button></div>
+${p.note?.trim()?`<div class="record-note"><span>备注 / Notes</span>${esc(p.note)}</div>`:''}</div>`}
+$('abnItems').innerHTML=rows.length?html:`<div class="follow-empty">${abnormalStatus(c)==='none'?'✓ 无异常 / No abnormalities':'待核查异常领件 / Pending abnormal pickup review'}</div>`}
+function renderDelivery(){const c=carrier();if(!c)return;const rows=(c.undeliveredRows||[]).filter(r=>valid(r.qty)>0);$('deliveryCountTag').textContent=`${fmt(undeliveredListed(c))} 件 / ${fmt(undeliveredListed(c))} parcels`;
+let html=`<div class="record-list-head"><strong>未送达原因明细 / Delivery follow-up records</strong><span>${rows.length} 条 / entries · 点击删除可撤销 / Undo available</span></div>`;
+for(const r of rows){const t=deliveryReasonText(r);html+=`<div class="record-row" data-delivery-id="${esc(r.id)}">
+<div class="record-reason"><b>${esc(t[0])}</b><small>${esc(t[1])}</small></div>
+<div class="record-qty"><strong>${fmt(valid(r.qty))}</strong><small>件 / parcels</small></div>
+<div class="record-eta"><small>预计送达 / ETA</small><b class="${r.eta?'':'pending'}">${r.eta?esc(r.eta):'待确认 / TBD'}</b></div>
+<div class="record-actions"><button type="button" class="record-edit" data-edit-delivery="${esc(r.id)}" aria-label="编辑 ${esc(t[0])}">✎ 编辑 / Edit</button><button type="button" class="record-delete" data-delete-delivery="${esc(r.id)}" aria-label="删除 ${esc(t[0])}">× 删除 / Delete</button></div>
+${r.note?.trim()?`<div class="record-note"><span>备注 / Notes</span>${esc(r.note)}</div>`:''}</div>`}
+const outstanding=deliveryMissing(c);$('deliveryList').innerHTML=rows.length?html:`<div class="follow-empty">${outstanding===0&&valid(c.expectedDelivery)>0?'✓ 昨日全部送达 / All parcels delivered yesterday':outstanding===0?'昨日无应派任务 / No delivery tasks yesterday':'尚未填写未送达原因 / Delivery follow-up pending'}</div>`;
+// Reconciliation remains at the bottom of the report.
+}
+function resetDeliveryForm(){deliveryEditId=null;$('deliveryForm').reset();$('deliveryCustomWrap').hidden=true;$('deliveryAddBtn').textContent='＋ 添加 / Add';$('deliveryCancel').hidden=true}
+
 function renderPictures(){let c=carrier();if(!c)return;$('photoTag').textContent=`${c.photos.length} 张 / ${c.photos.length} images`;$('photoList').innerHTML=c.photos.map(p=>`<div class="pic"><img src="${p.data}" data-zoom="${esc(p.id)}" alt="DMS screenshot"><div class="pic-footer"><input aria-label="图片备注 / Image name" data-caption="${esc(p.id)}" value="${esc(p.title)}" maxlength="75"><button type="button" data-delphoto="${esc(p.id)}" title="删除 / Delete">×</button></div></div>`).join('')}
 function render(){setStationButtons();renderDSPs();renderEditor()}
-function filterReasons(q=''){q=q.trim().toLowerCase();const matches=allDefs().filter(d=>(`${d.zh} ${d.en} ${d.group} ${d.enGroup} ${d.id}`).toLowerCase().includes(q));let out='',last='';for(const d of matches){const head=d.sect==='yes'?'A · 昨日未领 → 已领/已签收 / Picked up or delivered':'B · 昨日未领 → 仍未领/待核实 / Unpicked or to verify';const k=`${head} · ${d.group}`;if(k!==last){out+=`<div class="suggest-title">${esc(k)}</div>`;last=k}out+=`<button type="button" class="option" data-reason="${d.id}" role="option"><b>${esc(d.zh)}</b><small>${esc(d.en)}</small></button>`} $('suggestions').innerHTML=out||'<div class="blank">无匹配问题 / No matches</div>'}
+function filterReasons(q=''){q=q.trim().toLowerCase();const matches=allDefs().filter(d=>d.sect!=='abn'&&(`${d.zh} ${d.en} ${d.group} ${d.enGroup} ${d.id}`).toLowerCase().includes(q));let out='',last='';for(const d of matches){const head=d.sect==='yes'?'A · 已领取/已签收 / Picked up or delivered':d.sect==='no'?'B · 仍未领/待核实 / Unpicked or to verify':'C · 漏轨迹异常 / Missing scan events';const k=`${head} · ${d.group}`;if(k!==last){out+=`<div class="suggest-title">${esc(k)}</div>`;last=k}out+=`<button type="button" class="option" data-reason="${d.id}" role="option"><b>${esc(d.zh)}</b><small>${esc(d.en)}</small></button>`} $('suggestions').innerHTML=out||'<div class="blank">无匹配问题 / No matches</div>'}
 function suggestion(show){$('suggestions').classList.toggle('open',show);$('reasonInput').setAttribute('aria-expanded',String(show))}
-function choose(d){choice=d;$('customCase').hidden=!isCustom(d);if(isCustom(d)){$('customZh').value=d.custom?d.zh:'';$('customEn').value=d.custom?d.en:''}const input=$('reasonInput');input.value=`${d.zh} / ${d.en}`;$('choiceHelp').innerHTML=`<strong>自动归类 / Auto group：</strong>${d.sect==='yes'?'A · 已领或已签收':'B · 仍未领或待核实'} → ${esc(d.group)} / ${esc(d.enGroup)}`;suggestion(false)}
-function resetEntry(){choice=null;editId=null;$('customCase').hidden=true;$('customZh').value='';$('customEn').value='';$('reasonInput').value='';$('qtyInput').value='';$('noteInput').value='';$('choiceHelp').textContent='选择具体情况，填写件数。没有填写备注就不会在日报增加备注行。 / Notes only appear when entered.';$('addBtn').textContent='＋ 添加 / Add';$('cancelEdit').hidden=true;suggestion(false)}
-async function changeScope(station,date){const old=storageKey();clearTimeout(saveTimer);await save();const key=storageKey(station,date);let saved;try{saved=await idbRead(key)}catch{}if(!saved){try{saved=JSON.parse(localStorage.getItem(key)||'null')}catch{}}model=saved?.carriers?.length?normalize(saved,station,date):empty(station,date);active=selected()[0]?.id||null;resetEntry();$('taskDate').value=model.taskDate;$('checkDate').value=model.checkDate;render();notify(saved?'已载入保存的数据 / Draft loaded':'已切换站点或日期 / Switched station or date')}
+function choose(d){choice=d;$('customCase').hidden=!isCustom(d);if(isCustom(d)){$('customZh').value=d.custom?d.zh:'';$('customEn').value=d.custom?d.en:''}const input=$('reasonInput');input.value=`${d.zh} / ${d.en}`;$('choiceHelp').innerHTML=`<strong>自动归类 / Auto group：</strong>${d.sect==='yes'?'A · 已领或已签收':d.sect==='no'?'B · 仍未领或待核实':'C · 异常领件 / 漏轨迹'} → ${esc(d.group)} / ${esc(d.enGroup)}`;suggestion(false)}
+function resetEntry(){choice=null;editId=null;$('customCase').hidden=true;$('customZh').value='';$('customEn').value='';$('reasonInput').value='';$('qtyInput').value='';$('noteInput').value='';$('choiceHelp').textContent='选择具体情况自动归类 A / B；异常领件请到下方独立填写。 / A/B are auto-grouped. Abnormal pickups have a separate form below.';$('addBtn').textContent='＋ 添加 / Add';$('cancelEdit').hidden=true;suggestion(false)}
+async function changeScope(station,date){clearTimeout(saveTimer);await save();const key=storageKey(station,date);const inPage=currentSessionReports.get(key);model=inPage?normalize(structuredClone(inPage),station,date):freshReport(station,date);model.checkDate=inPage?.checkDate||today();active=selected()[0]?.id||null;resetEntry();resetDeliveryForm();resetAbnormalForm();$('taskDate').value=model.taskDate;$('checkDate').value=model.checkDate;render();notify(inPage?'已载入当前页面内的填写 / In-page draft restored':'新站点或日期：空白日报 / New blank report')}
 function normalize(raw,station=raw.station||'MIA01',date=raw.taskDate||yesterday(today())){
-const customSituations=(Array.isArray(raw.customSituations)?raw.customSituations:[]).slice(0,250).filter(d=>d?.custom&&['yes','no'].includes(d.sect)&&String(d.id||'').startsWith('USR_')).map(d=>({id:String(d.id).slice(0,100),sect:d.sect,group:'其他自定义',enGroup:'Other custom situations',zh:String(d.zh||'').slice(0,90),en:String(d.en||'Custom situation').slice(0,115),custom:true}));
+const customSituations=(Array.isArray(raw.customSituations)?raw.customSituations:[]).slice(0,250).filter(d=>d?.custom&&['yes','no','abn'].includes(d.sect)&&String(d.id||'').startsWith('USR_')).map(d=>({id:String(d.id).slice(0,100),sect:d.sect,group:'其他自定义',enGroup:'Other custom situations',zh:String(d.zh||'').slice(0,90),en:String(d.en||'Custom situation').slice(0,115),custom:true}));
 const knownId=id=>Boolean(defMap[id]||customSituations.find(d=>d.id===id));
-let arr=Array.isArray(raw.carriers)?raw.carriers:[];arr=arr.slice(0,20).map(c=>({id:String(c.id||uid()),name:String(c.name||'DSP').slice(0,30).toUpperCase(),selected:!!c.selected,due:valid(c.due)===null?'':String(c.due),picked:valid(c.picked)===null?'':String(c.picked),items:Object.fromEntries(Object.entries(c.items||{}).filter(([id,p])=>knownId(id)&&valid(p?.qty)!==null).map(([id,p])=>[id,{qty:valid(p.qty),note:String(p.note||'').slice(0,500)}])),photos:(Array.isArray(c.photos)?c.photos:[]).filter(p=>String(p.data||'').startsWith('data:image/')&&String(p.data).length<17000000).slice(0,12).map(p=>({id:String(p.id||uid()),title:String(p.title||'DMS截图').slice(0,75),data:p.data}))}));arr=arr.filter(c=>!PRESETS_ALL.includes(c.name)||presets(station).includes(c.name)||c.selected||c.due!==''||c.picked!==''||Object.keys(c.items).length>0||c.photos.length>0);
-for(const name of presets(station)){if(!arr.some(c=>c.name===name))arr.push(makeDSP(name))}
-return {station,taskDate:date,checkDate:/^\d{4}-\d{2}-\d{2}$/.test(raw.checkDate||'')?raw.checkDate:today(),carriers:arr,customSituations}}
+let arr=Array.isArray(raw.carriers)?raw.carriers:[];arr=arr.slice(0,20).map(c=>({id:String(c.id||uid()),name:String(c.name||'DSP').slice(0,30).toUpperCase(),selected:!!c.selected,due:valid(c.due)===null?'':String(c.due),picked:valid(c.picked)===null?'':String(c.picked),expectedDelivery:valid(c.expectedDelivery)===null?'':String(c.expectedDelivery),delivered:valid(c.delivered)===null?'':String(c.delivered),abnormalReviewed:!!c.abnormalReviewed,undeliveredRows:(Array.isArray(c.undeliveredRows)?c.undeliveredRows:[]).slice(0,500).filter(r=>r&&deliveryReasons[r.reason]&&valid(r.qty)>0).map(r=>({id:String(r.id||uid()),reason:r.reason,custom:String(r.custom||'').slice(0,95),qty:valid(r.qty),eta:/^\d{4}-\d{2}-\d{2}$/.test(r.eta||'')?r.eta:'',note:String(r.note||'').slice(0,400)})),items:Object.fromEntries(Object.entries(c.items||{}).filter(([id,p])=>knownId(id)&&valid(p?.qty)!==null).map(([id,p])=>[id,{qty:valid(p.qty),note:String(p.note||'').slice(0,500)}])),photos:(Array.isArray(c.photos)?c.photos:[]).filter(p=>String(p.data||'').startsWith('data:image/')&&String(p.data).length<17000000).slice(0,12).map(p=>({id:String(p.id||uid()),title:String(p.title||'DMS截图').slice(0,75),data:p.data}))}));arr=arr.filter(c=>!PRESETS_ALL.includes(c.name)||presets(station).includes(c.name)||c.selected||c.due!==''||c.picked!==''||c.expectedDelivery!==''||c.delivered!==''||c.undeliveredRows.length>0||Object.keys(c.items).length>0||c.photos.length>0);
+const removedDSPs=(Array.isArray(raw.removedDSPs)?raw.removedDSPs:[]).map(x=>String(x).toUpperCase()).slice(0,100);for(const name of presets(station)){if(!arr.some(c=>c.name===name)&&!removedDSPs.includes(name))arr.push(makeDSP(name))}
+return {station,taskDate:date,checkDate:/^\d{4}-\d{2}-\d{2}$/.test(raw.checkDate||'')?raw.checkDate:today(),carriers:arr,removedDSPs,customSituations}}
 async function shrink(file){if(!['image/png','image/jpeg','image/webp'].includes(file.type))throw Error('只支持 JPG / PNG / WEBP');if(file.size>25*1024*1024)throw Error('图片太大 / File too large (25MB limit)');let url=URL.createObjectURL(file);try{const img=new Image();img.src=url;await img.decode();const canvas=document.createElement('canvas'),f=Math.min(1,1800/Math.max(img.naturalWidth,img.naturalHeight));canvas.width=Math.max(1,Math.round(img.naturalWidth*f));canvas.height=Math.max(1,Math.round(img.naturalHeight*f));const x=canvas.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,canvas.width,canvas.height);x.drawImage(img,0,0,canvas.width,canvas.height);return canvas.toDataURL('image/jpeg',.88)}finally{URL.revokeObjectURL(url)}}
 async function addPictures(files){const c=carrier();if(!c)return;if(files.length+c.photos.length>12)return notify('每家货代最多12张截图 / Max 12 images per DSP');let n=0;for(const f of files){try{c.photos.push({id:uid(),title:f.name.replace(/\.[^.]+$/,'').slice(0,75),data:await shrink(f)});n++}catch(e){notify(`${f.name}: ${e.message}`)}}if(n){changed();notify(`已上传 ${n} 张 / ${n} images uploaded`)}}
 function imageReady(data){return new Promise(resolve=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>resolve(null);im.src=data})}
@@ -134,31 +472,135 @@ function clipped(s,maxWidth,size=14,weight=550){ctx.font=`${weight} ${size}px 'M
 function chunks(arr,n){const out=[];for(let i=0;i<arr.length;i+=n)out.push(arr.slice(i,i+n));return out}
 function reportGroups(section,part){const arr=allDefs().filter(d=>d.sect===section&&part.some(c=>valid(c.items[d.id]?.qty)>0));return [...new Set(arr.map(d=>d.group))].map(group=>({group,en:arr.find(d=>d.group===group).enGroup,defs:arr.filter(d=>d.group===group)}))}
 function noteLines(def,part,limit){let pieces=[];for(const c of part){const note=String(c.items?.[def.id]?.note||'').trim();if(note)pieces.push(`${c.name}：${note}`)}if(!pieces.length)return [];return wrap('备注 / Notes：'+pieces.join('    ·    '),limit,13,550)}
-function reportSection(section,part,y,paint){const x=margin,cw=content,cols=part.length,numberCol=110,dspW=144,labelW=cw-cols*dspW-numberCol;const groups=reportGroups(section,part);if(paint){rect(x,y,cw,52,section==='yes'?'#e8f6f1':'#fff3e5');txt(section==='yes'?'A / 昨日未领任务 · 已领或已签收':'B / 昨日未领任务 · 仍未领或待核实',x+17,y+33,20,section==='yes'?forest:ochre,850);txt(fmt(part.reduce((n,c)=>n+parcelCount(c,section),0))+' 件',x+cw-17,y+33,20,section==='yes'?forest:ochre,900,'right')}y+=52;
-if(!groups.length){if(paint)txt('暂无记录 / No entries',x+15,y+29,15,'#8da2ae');return y+49}
+function reportSection(section,part,y,paint){const x=margin,cw=content,cols=part.length,numberCol=110,dspW=144,labelW=cw-cols*dspW-numberCol;const groups=reportGroups(section,part);if(paint){const heads={yes:'A / 昨日未领 · 已领或已签收',no:'B / 昨日未领 · 仍未领或待核实',abn:'C / 异常领件（漏轨迹）/ Abnormal pickup scans'},colors={yes:['#e8f6f1',forest],no:['#fff3e5',ochre],abn:['#ecf1ff','#315d96']},[bg,fg]=colors[section];rect(x,y,cw,52,bg);txt(heads[section],x+17,y+33,20,fg,850);txt(fmt(part.reduce((n,c)=>n+parcelCount(c,section),0))+' 件',x+cw-17,y+33,20,fg,900,'right')}y+=52;
+if(!groups.length){const allPicked=part.every(c=>baseline(c)===0);const label=allPicked&&section==='yes'?'✓ 昨日全部领取 / All parcels picked up yesterday':allPicked&&section==='no'?'无需未领跟进 / No unpicked follow-up':'暂无记录 / No entries';if(paint)txt(label,x+15,y+29,15,allPicked?forest:'#8da2ae');return y+49}
 if(paint){rect(x,y,cw,39,'#e9f1f5');txt('具体情况 / Situation',x+16,y+26,13,softInk,800);part.forEach((c,i)=>txt(c.name,x+labelW+dspW*(i+.5),y+26,14,softInk,850,'center'));txt('合计 / Total',x+cw-10,y+26,13,softInk,850,'right')}y+=39;
 for(const g of groups){const groupCount=g.defs.reduce((s,d)=>s+part.reduce((n,c)=>n+(valid(c.items[d.id]?.qty)||0),0),0);if(paint){rect(x,y,cw,42,'#f3f7f9');txt(`${g.group} / ${g.en}`,x+16,y+27,15,'#416779',800);txt(fmt(groupCount),x+cw-15,y+27,15,'#416779',850,'right')}y+=42;
-for(const d of g.defs){const shortZh=d.zh.replace(/^昨日未到站，/,'').replace(/^昨日已到站，/,'');const shortEn=d.en.replace(/^Not on site yesterday; /,'').replace(/^On site yesterday; /,'');const labelLines=[...wrap('· '+shortZh,labelW-35,14,650),...wrap('   '+shortEn,labelW-35,12,450)];const rh=Math.max(49,labelLines.length*17+17);if(paint){rect(x,y,cw,rh,'#fff');rect(x,y+rh-1,cw,1,'#e8eef1');labelLines.forEach((line,i)=>txt(line,x+17,y+21+i*17,i===0?14:12,i===0?'#24485a':'#718b99',i===0?650:450));let rowSum=0;part.forEach((c,i)=>{let q=valid(c.items[d.id]?.qty)||0;rowSum+=q;txt(q?fmt(q):'—',x+labelW+dspW*(i+.5),y+rh/2+6,15,q?'#2e5868':'#b4c1c8',q?780:400,'center')});txt(fmt(rowSum),x+cw-14,y+rh/2+6,16,navy,850,'right')}y+=rh;
+for(const d of g.defs){const shortZh=d.zh.replace(/^昨日未到站，/,'').replace(/^昨日已到站，/,'');const shortEn=d.en.replace(/^Not on site yesterday; /,'').replace(/^On site yesterday; /,'');const labelLines=[...wrap('· '+shortZh,labelW-35,17,700),...wrap('   '+shortEn,labelW-35,14,480)];const rh=Math.max(65,labelLines.length*22+20);if(paint){rect(x,y,cw,rh,'#fff');rect(x,y+rh-1,cw,1,'#e8eef1');labelLines.forEach((line,i)=>txt(line,x+17,y+28+i*22,i===0?17:14,i===0?'#24485a':'#718b99',i===0?700:480));let rowSum=0;part.forEach((c,i)=>{let q=valid(c.items[d.id]?.qty)||0;rowSum+=q;txt(q?fmt(q):'—',x+labelW+dspW*(i+.5),y+rh/2+7,18,q?'#2e5868':'#b4c1c8',q?780:400,'center')});txt(fmt(rowSum),x+cw-14,y+rh/2+7,18,navy,850,'right')}y+=rh;
 const lines=noteLines(d,part,cw-55);if(lines.length){const nh=lines.length*20+17;if(paint){rect(x,y,cw,nh,'#f6fafb');rect(x+16,y+10,3,nh-20,'#c4dedc');lines.forEach((line,i)=>txt(line,x+27,y+25+i*20,13,'#527889',550))}y+=nh}
 }}
 return y}
-function reportSummary(part,y,paint,all){const x=margin,cols=part.length,ncol=144,tw=content,headerH=41,labelW=tw-((cols+1)*ncol),groupTotals={due:part.reduce((n,c)=>n+(valid(c.due)||0),0),picked:part.reduce((n,c)=>n+(valid(c.picked)||0),0)},rows=[['昨日应领 / Expected',c=>valid(c.due)],['昨日已领 / Picked up',c=>valid(c.picked)],['昨日未领 / Unpicked',c=>baseline(c)],['取件率 / Pickup rate',c=>rate(c)]];if(paint){txt('昨日取件统计 / Previous-day pickup',x,y+22,20,navy,850)}y+=39;if(paint){rect(x,y,tw,headerH,'#e7eff3');txt('项目 / Item',x+14,y+27,14,softInk,800);part.forEach((c,i)=>txt(c.name,x+labelW+ncol*(i+.5),y+27,15,softInk,850,'center'));txt('合计 / Total',x+tw-15,y+27,14,softInk,850,'right')}y+=headerH;
-for(let ri=0;ri<rows.length;ri++){let [label,fn]=rows[ri],bh=49;if(paint){rect(x,y,tw,bh,ri%2?'#f8fafb':'#fff');rect(x,y+bh-1,tw,1,'#edf0f3');txt(label,x+15,y+30,15,'#31566a',ri>=2?850:650);part.forEach((c,i)=>{let z=fn(c),value=typeof z==='string'?z:fmt(z);txt(value,x+labelW+ncol*(i+.5),y+30,16,ri===3?forest:navy,ri>=2?880:700,'center')});let t=ri===0?groupTotals.due:ri===1?groupTotals.picked:ri===2?groupTotals.due-groupTotals.picked:groupTotals.due>0?`${(groupTotals.picked/groupTotals.due*100).toFixed(2)}%`:'—';txt(typeof t==='number'?fmt(t):t,x+tw-13,y+30,16,ri===3?forest:navy,900,'right')}y+=bh}return y}
+function reportAnomalies(part,y,paint){
+ const x=margin,cw=content,cols=part.length,dspW=144,numberCol=110,labelW=cw-cols*dspW-numberCol;
+ const rows=allDefs().filter(d=>d.sect==='abn'&&part.some(c=>valid(c.items?.[d.id]?.qty)>0));
+ const totalAbn=part.reduce((n,c)=>n+anomalyCount(c),0);
+ if(paint){rect(x,y,cw,58,'#edf2fc');rect(x,y,7,58,'#597cba');txt('异常领件 / Abnormal pickup scans · 昨日派送',x+18,y+36,21,'#2d527c',870);txt(fmt(totalAbn)+' 件',x+cw-17,y+36,21,'#2d527c',900,'right')}y+=58;
+ if(rows.length){
+   if(paint){rect(x,y,cw,44,'#e6edf6');txt('异常情况 / Missing scan situation',x+16,y+29,15,'#4b6385',800);part.forEach((c,i)=>txt(c.name,x+labelW+dspW*(i+.5),y+28,16,'#4b6385',850,'center'));txt('合计 / Total',x+cw-12,y+29,14,'#4b6385',850,'right')}y+=44;
+   for(const d of rows){const zh=wrap('· '+d.zh,labelW-35,17,740),en=wrap('  '+d.en,labelW-35,14,500),rh=Math.max(62,zh.length*23+en.length*20+17);
+     if(paint){rect(x,y,cw,rh,'#fff');rect(x,y+rh-1,cw,1,'#e7edf4');let iy=y+25;zh.forEach(line=>{txt(line,x+18,iy,17,'#284f74',740);iy+=23});en.forEach(line=>{txt(line,x+18,iy,14,'#73879b',500);iy+=20});let t=0;part.forEach((c,i)=>{const n=valid(c.items?.[d.id]?.qty)||0;t+=n;txt(n?fmt(n):'—',x+labelW+dspW*(i+.5),y+rh/2+7,18,n?'#2d527c':'#b3c1cb',n?800:450,'center')});txt(fmt(t),x+cw-15,y+rh/2+7,19,'#2d527c',900,'right')}y+=rh;
+     const notes=noteLines(d,part,cw-80);if(notes.length){const nh=notes.length*21+17;if(paint){rect(x,y,cw,nh,'#f5f8fc');rect(x+16,y+8,3,nh-16,'#aabfe1');notes.forEach((line,i)=>txt(line,x+28,y+24+i*21,14,'#526b8f',550))}y+=nh}
+   }
+ } else if(part.every(c=>abnormalStatus(c)==='none')){
+   if(paint){rect(x,y,cw,48,'#eff8f3');txt('✓ 无异常 / No abnormalities',x+18,y+31,18,forest,850)}y+=48;
+ } else {
+   if(paint){rect(x,y,cw,48,'#fafbfd');txt('待核查 / Pending abnormal pickup review',x+17,y+31,17,'#8a99a7',750)}y+=48;
+ }
+ // Each DSP can be confirmed no abnormalities even when another DSP has anomalies.
+ if(paint){rect(x,y,cw,42,'#f2f6fa');txt('核查状态 / Review status',x+15,y+27,14,'#435e88',740);part.forEach((c,i)=>txt(abnormalStatus(c)==='none'?'无异常':abnormalStatus(c)==='pending'?'待核查':`${fmt(anomalyCount(c))} 件`,x+labelW+dspW*(i+.5),y+27,14,abnormalStatus(c)==='none'?forest:'#556f90',800,'center'));txt('—',x+cw-15,y+27,15,'#8ba0ac',700,'right')}y+=42;
+ const totalExpected=part.reduce((n,c)=>n+(valid(c.expectedDelivery)||0),0),completed=part.every(c=>valid(c.expectedDelivery)!==null&&abnormalStatus(c)!=='pending');
+ if(paint){rect(x,y,cw,48,'#e9f0fa');txt('异常占昨日应派比例 / % of expected delivery',x+15,y+30,15,'#435e88',760);part.forEach((c,i)=>txt(anomalyRate(c),x+labelW+dspW*(i+.5),y+31,17,'#2d527c',850,'center'));txt(completed&&totalExpected>0?`${(100*totalAbn/totalExpected).toFixed(2)}%`:'—',x+cw-14,y+31,18,'#2d527c',900,'right')}y+=48;
+ if(paint){txt('独立统计：异常领件 ÷ 昨日应派；不参与昨日未领 A+B 核对。',x+14,y+26,14,'#7c8da3',500)}
+ return y+43;
+}
+
+function reportSummary(part,y,paint){const x=margin,cols=part.length,ncol=145,tw=content,labelW=tw-(cols+1)*ncol;
+const sum=f=>part.reduce((n,c)=>n+(valid(c[f])||0),0),pd=sum('due'),pk=sum('picked'),ed=sum('expectedDelivery'),dl=sum('delivered'),hasPickup=part.some(c=>valid(c.due)!==null&&valid(c.picked)!==null),hasDelivery=part.some(c=>valid(c.expectedDelivery)!==null&&valid(c.delivered)!==null);
+const rows=[['取件 / Pickup','',null],['昨日应领 / Expected pickup','due',c=>valid(c.due)],['昨日已领 / Picked up','picked',c=>valid(c.picked)],['昨日未领 / Unpicked','unpicked',c=>baseline(c)],['昨日取件率 / Pickup rate','pickup-rate',c=>rate(c)],['派送 / Delivery','',null],['昨日应派 / Expected delivery','expectedDelivery',c=>valid(c.expectedDelivery)],['昨日已送达 / Delivered','delivered',c=>valid(c.delivered)],['昨日未送达 / Undelivered','undelivered',c=>deliveryMissing(c)],['昨日送达率 / Delivery rate','delivery-rate',c=>deliveryRate(c)]];
+if(paint){txt('昨日运营数据 / Previous-day performance',x,y+23,21,navy,850)}y+=44;
+if(paint){rect(x,y,tw,42,'#e9f1f5');txt('项目 / Item',x+15,y+28,14,softInk,800);part.forEach((c,i)=>txt(c.name,x+labelW+ncol*(i+.5),y+28,15,softInk,850,'center'));txt('合计 / Total',x+tw-15,y+28,14,softInk,800,'right')}y+=42;
+for(const [label,key,fn] of rows){if(!fn){if(paint){rect(x,y,tw,31,'#edf5f5');txt(label,x+15,y+21,13,forest,820)}y+=31;continue}if(paint){rect(x,y,tw,43,y%2?'#fff':'#fafcfd');rect(x,y+42,tw,1,'#edf1f3');txt(label,x+15,y+28,14,'#31566a',key.includes('rate')?850:600);part.forEach((c,i)=>{const v=fn(c);txt(typeof v==='string'?v:fmt(v),x+labelW+ncol*(i+.5),y+28,15,key.includes('rate')?forest:navy,700,'center')});let val='—';if(key==='due')val=hasPickup?fmt(pd):'—';if(key==='picked')val=hasPickup?fmt(pk):'—';if(key==='unpicked')val=hasPickup?fmt(pd-pk):'—';if(key==='pickup-rate')val=pd?`${(100*pk/pd).toFixed(2)}%`:'—';if(key==='expectedDelivery')val=hasDelivery?fmt(ed):'—';if(key==='delivered')val=hasDelivery?fmt(dl):'—';if(key==='undelivered')val=hasDelivery?fmt(ed-dl):'—';if(key==='delivery-rate')val=ed?`${(100*dl/ed).toFixed(2)}%`:'—';txt(val,x+tw-13,y+28,15,key.includes('rate')?forest:navy,900,'right')}y+=43}return y}
+function reportDelivery(part,y,paint){const x=margin,cw=content,cols=part.length,dspW=145,ncol=118,labelW=cw-cols*dspW-ncol,rows=[];
+for(const c of part){for(const r of c.undeliveredRows||[]){if(!(valid(r.qty)>0))continue;const key=[r.reason,r.custom||'',r.eta||''].join('::');let row=rows.find(a=>a.key===key);if(!row){row={key,reason:r.reason,custom:r.custom||'',eta:r.eta||'',entries:{},notes:[]};rows.push(row)}row.entries[c.id]=(row.entries[c.id]||0)+valid(r.qty);if(r.note?.trim())row.notes.push(`${c.name}：${r.note.trim()}`)}}
+if(paint){rect(x,y,cw,54,'#e9f1f6');txt('昨日未送达跟进 / Undelivered follow-up',x+16,y+35,20,navy,850);txt(fmt(part.reduce((a,c)=>a+undeliveredListed(c),0))+' 件',x+cw-17,y+35,20,navy,900,'right')}y+=54;
+if(!rows.length){const allFull=part.every(c=>deliveryMissing(c)===0&&valid(c.expectedDelivery)>0);const anyNoTask=part.every(c=>deliveryMissing(c)===0&&valid(c.expectedDelivery)===0);const text=allFull?'✓ 昨日全部送达 / All parcels delivered yesterday':anyNoTask?'昨日无应派任务 / No deliveries scheduled':'待填写未送达原因 / Undelivered reasons pending';if(paint){rect(x,y,cw,49,allFull?'#ebf8ef':'#f8fafb');txt(text,x+15,y+31,17,allFull?forest:'#8195a4',allFull?850:660)}return y+49}
+const anyAllDelivered=part.some(c=>deliveryMissing(c)===0&&valid(c.expectedDelivery)>0);
+if(anyAllDelivered){
+ const lab='昨日派送状态 / Delivery status';
+ if(paint){rect(x,y,cw,48,'#eef8f1');txt(lab,x+15,y+31,16,forest,800);part.forEach((c,i)=>{const full=deliveryMissing(c)===0&&valid(c.expectedDelivery)>0;const n=deliveryMissing(c);txt(full?'全部送达':n==null?'待填写':`${fmt(n)} 未送达`,x+labelW+dspW*(i+.5),y+30,15,full?forest:navy,800,'center')});txt(fmt(part.reduce((a,c)=>a+(Math.max(0,deliveryMissing(c)||0)),0))+' 未送达',x+cw-14,y+30,15,navy,850,'right')}
+ y+=48;
+}
+if(paint){rect(x,y,cw,41,'#f2f6f8');txt('原因 / Reason    ·    预计送达 / ETA',x+15,y+27,13,softInk,800);part.forEach((c,i)=>txt(c.name,x+labelW+dspW*(i+.5),y+27,14,softInk,850,'center'));txt('合计 / Total',x+cw-14,y+27,13,softInk,850,'right')}y+=41;
+for(const r of rows){let pair=deliveryReasonText(r),label=`${pair[0]}   /   ${pair[1]}`,lines=wrap(label,labelW-30,14,700),etaLabel=`ETA：${r.eta||'待确认 / TBD'}`,h=Math.max(56,lines.length*19+28);if(paint){rect(x,y,cw,h,'#fff');rect(x,y+h-1,cw,1,'#ecf1f3');lines.forEach((a,i)=>txt(a,x+15,y+20+i*19,14,'#2d5666',700));txt(etaLabel,x+15,y+h-12,12,ochre,720);let total=0;part.forEach((c,i)=>{let q=r.entries[c.id]||0;total+=q;txt(q?fmt(q):'—',x+labelW+dspW*(i+.5),y+h/2+6,16,q?navy:'#b0c1c9',760,'center')});txt(fmt(total),x+cw-14,y+h/2+6,16,navy,900,'right')}y+=h;
+if(r.notes.length){const nlines=wrap('备注 / Notes：'+r.notes.join('   ·   '),cw-60,13,500),nh=16+nlines.length*20;if(paint){rect(x,y,cw,nh,'#f6fafb');nlines.forEach((a,i)=>txt(a,x+25,y+21+i*20,13,'#587b8e',550))}y+=nh}}
+return y}
+function reportFinalAudit(part,y,paint){
+ const x=margin,cw=content,cols=part.length,dspW=144,totalW=145,labelW=cw-cols*dspW-totalW;
+ const sums=part.map(c=>({
+   targetU:baseline(c),a:parcelCount(c,'yes'),b:parcelCount(c,'no'),
+   targetD:deliveryMissing(c),follow:undeliveredListed(c)
+ }));
+ for(const z of sums)z.filledU=z.a+z.b;
+ const allKnownU=sums.every(z=>z.targetU!==null),allKnownD=sums.every(z=>z.targetD!==null);
+ const total=(k)=>sums.reduce((n,z)=>n+(z[k]||0),0);
+ const value=(z,k)=>z[k];
+ if(paint){rect(x,y,cw,64,'#e3f2ed');rect(x,y,7,64,'#128b77');txt('最终核对 / Final Data Check',x+19,y+42,26,navy,900)}y+=64;
+ if(paint){rect(x,y,cw,48,'#edf3f6');txt('核对项目 / Item',x+16,y+31,17,softInk,820);
+ part.forEach((c,i)=>txt(c.name,x+labelW+dspW*(i+.5),y+30,19,navy,850,'center'));
+ txt('合计 / Total',x+cw-14,y+30,16,navy,850,'right')}y+=48;
+ function drawRow(label,field,opts={}){
+   const height=opts.height||44;
+   if(paint){rect(x,y,cw,height,opts.highlight?'#eaf6f0':opts.warn?'#fff8ee':'#ffffff');rect(x,y+height-1,cw,1,'#e9eef1');txt(label,x+(opts.indent?33:17),y+height/2+6,opts.bold?17:15,opts.bold?navy:softInk,opts.bold?850:680);
+     sums.forEach((z,i)=>{
+       const v=value(z,field),str=v===null?'—':(opts.delta?fmtDifference(v):fmt(v)),cl=v===null?'#9bacb5':opts.delta&&v!==0?'#a56b23':opts.highlight?forest:navy;
+       txt(str,x+labelW+dspW*(i+.5),y+height/2+7,opts.bold?19:17,cl,opts.bold?900:760,'center')});
+     const have=opts.requires==='d'?allKnownD:opts.requires==='u'?allKnownU:true;
+     const tv=have?total(field):null;
+     txt(tv===null?'—':opts.delta?fmtDifference(tv):fmt(tv),x+cw-15,y+height/2+7,opts.bold?19:17,opts.highlight?forest:navy,opts.bold?900:760,'right');
+   }
+   y+=height;
+ }
+ function fmtDifference(v){return v===0?'0':v>0?`少 ${fmt(v)}`:`多 ${fmt(-v)}`}
+ for(const z of sums){z.diffU=z.targetU===null?null:z.targetU-z.filledU;z.diffD=z.targetD===null?null:z.targetD-z.follow}
+ if(paint){rect(x,y,cw,48,'#e9f5f1');txt('① 昨日未领：A + B = 昨日未领 / Unpicked parcels',x+18,y+31,19,forest,850)}y+=48;
+ drawRow('应核对：昨日未领 / Expected unpicked','targetU',{bold:true,requires:'u'});
+ drawRow('A / 今日已领或已签收 / Picked up','a',{indent:true});
+ drawRow('B / 仍未领取 / Still unpicked','b',{indent:true});
+ drawRow('已填写分类合计 / Classified total','filledU',{bold:true,highlight:true});
+ drawRow('差额 / Difference','diffU',{bold:true,delta:true,requires:'u',warn:true});
+ if(paint){rect(x,y,cw,38,'#f8fafb');txt('差额 0 = ✓ 核对一致 / A difference of 0 means MATCHED.',x+18,y+24,14,'#627f90',650)}y+=38;
+ if(paint){rect(x,y,cw,48,'#e8f0f8');txt('② 昨日未送达：原因合计要等于未送达 / Undelivered parcels',x+18,y+31,19,'#315d83',850)}y+=48;
+ drawRow('应核对：昨日未送达 / Expected undelivered','targetD',{bold:true,requires:'d'});
+ drawRow('已填写原因合计 / Reasons entered','follow',{bold:true,highlight:true});
+ drawRow('差额 / Difference','diffD',{bold:true,delta:true,requires:'d',warn:true});
+ // Final status explicitly distinguishes missing baselines, invalid baselines and mismatches.
+ const allOkU=allKnownU&&sums.every(z=>z.targetU>=0&&z.diffU===0),allOkD=allKnownD&&sums.every(z=>z.targetD>=0&&z.diffD===0);
+ const hasInvalid=sums.some(z=>(z.targetU!==null&&z.targetU<0)||(z.targetD!==null&&z.targetD<0));
+ const status=hasInvalid?'⚠ 应领/已领或应派/送达数量有误 / Invalid totals':allOkU&&allOkD?'✓ 两项均核对一致 / Both checks MATCHED':!allKnownU||!allKnownD?'⚠ 数据未填完整 / Missing baseline values':'⚠ 有差额，请核查 / Differences require review';
+ if(paint){rect(x,y,cw,52,allOkU&&allOkD?'#e6f6ed':'#fff3e4');txt(status,x+17,y+34,19,allOkU&&allOkD?forest:'#955d23',840)}y+=52;
+ if(paint){rect(x,y,cw,39,'#f7fafb');txt('说明：异常领件属于昨日派送，单独统计，不参与 A+B 或未送达核对。/ Abnormal scans are tracked separately.',x+14,y+25,13,'#688392',560)}
+ return y+39;
+}
 function imageLayout(im){const nw=im?.naturalWidth||1100,nh=im?.naturalHeight||650,scale=Math.min((content-32)/nw,760/nh,1.12);return {w:Math.max(1,Math.round(nw*scale)),h:Math.max(1,Math.round(nh*scale))}}
-async function drawReport(){const part=selected();if(!part.length)throw Error('请先勾选至少一家货代 / Select a DSP');const seq=++drawSeq;const photos=part.flatMap(c=>c.photos.map(p=>({...p,owner:c.name}))),loaded=await Promise.all(photos.map(p=>imageReady(p.data)));if(seq!==drawSeq)throw Error('请求已取消 / Canceled');const imap=new Map(photos.map((p,i)=>[p.id,loaded[i]]));canvas=$('reportCanvas');canvas.width=W;canvas.height=300;ctx=canvas.getContext('2d');const all={due:part.reduce((n,c)=>n+(valid(c.due)||0),0),picked:part.reduce((n,c)=>n+(valid(c.picked)||0),0)};const groupParts=chunks(part,5);let y=177+115+26;for(const p of groupParts){if(groupParts.length>1)y+=34;y=reportSummary(p,y,false,all)+25;y=reportSection('yes',p,y,false)+24;y=reportSection('no',p,y,false)+31}if(photos.length){y+=33;for(const c of part){if(!c.photos.length)continue;y+=43;for(const p of c.photos)y+=imageLayout(imap.get(p.id)).h+61;y+=17}}
-const h=Math.ceil(y+80);if(h>31000)throw Error('内容过长，请减少截图 / Too many images');canvas.height=h;ctx=canvas.getContext('2d');rect(0,0,W,h,'#fff');rect(0,0,W,160,navy);rect(margin,35,6,84,'#55d4ba');txt(`GOFO  /  ${model.station}  /  FREIGHT FORWARDER DAILY REPORT`,margin+25,59,15,'#a9d4df',800);txt('货代日报 / Freight Forwarder Daily Report',margin+25,108,32,'#fff',900);txt(`昨日任务 / Task ${model.taskDate}     ·     最新查询 / Checked ${model.checkDate}`,margin+25,140,16,'#d0e8ec',600);
-y=177;const stat=[['昨日应领 / Expected',fmt(all.due)],['昨日已领 / Picked up',fmt(all.picked)],['昨日未领 / Unpicked',fmt(all.due-all.picked)],['昨日取件率 / Pickup rate',all.due>0?(100*all.picked/all.due).toFixed(2)+'%':'—']];let cardW=(content-36)/4;stat.forEach(([name,val],i)=>{const xx=margin+(cardW+12)*i;rect(xx,y,cardW,95,i===3?'#e9f7f1':'#f1f6f8');txt(name,xx+16,y+29,13,'#658191',730);txt(val,xx+16,y+72,27,i===3?forest:navy,900)});y+=115+26;
-for(const [i,p] of groupParts.entries()){if(groupParts.length>1){rect(margin,y-9,content,3,'#d6e5e9');txt(`货代 / DSP ${p.map(c=>c.name).join(' · ')}`,margin,y+14,15,'#627f8f',800);y+=34}y=reportSummary(p,y,true,all)+25;y=reportSection('yes',p,y,true)+24;y=reportSection('no',p,y,true)+31}
+async function drawReport(includePhotos=false){const part=selected();if(!part.length)throw Error('请先勾选至少一家货代 / Select a DSP');const seq=++drawSeq;const photos=includePhotos?part.flatMap(c=>c.photos.map(p=>({...p,owner:c.name}))):[],loaded=await Promise.all(photos.map(p=>imageReady(p.data)));if(seq!==drawSeq)throw Error('请求已取消 / Canceled');const imap=new Map(photos.map((p,i)=>[p.id,loaded[i]]));canvas=$('reportCanvas');canvas.width=W;canvas.height=300;ctx=canvas.getContext('2d');
+const all={due:part.reduce((n,c)=>n+(valid(c.due)||0),0),picked:part.reduce((n,c)=>n+(valid(c.picked)||0),0),expectedDelivery:part.reduce((n,c)=>n+(valid(c.expectedDelivery)||0),0),delivered:part.reduce((n,c)=>n+(valid(c.delivered)||0),0)};
+// Final checks are non-blocking; mismatches are disclosed at the end of the PNG.
+const groupParts=chunks(part,5),TOP=220,CARD_Y=244,CARD_H=93*2+14,CARD_BOTTOM=CARD_Y+CARD_H+34;let y=CARD_BOTTOM;for(const p of groupParts){if(groupParts.length>1)y+=35;y=reportSummary(p,y,false)+25;y=reportSection('yes',p,y,false)+24;y=reportSection('no',p,y,false)+24;y=reportAnomalies(p,y,false)+24;y=reportDelivery(p,y,false)+36}if(photos.length){y+=33;for(const c of part){if(!c.photos.length)continue;y+=43;for(const p of c.photos)y+=imageLayout(imap.get(p.id)).h+61;y+=17}}
+y+=24;for(const p of groupParts){y=reportFinalAudit(p,y,false)+26}
+const h=Math.ceil(y+83);if(h>32000)throw Error('内容过长，请减少截图 / Too many images');canvas.height=h;ctx=canvas.getContext('2d');rect(0,0,W,h,'#fff');rect(0,0,W,TOP,navy);rect(margin,42,7,115,'#55d4ba');txt(`GOFO / ${model.station} / FREIGHT FORWARDER DAILY REPORT`,margin+25,65,16,'#a9d4df',800);txt('货代日报 / Freight Forwarder Daily Report',margin+25,119,37,'#fff',900);
+// The report's two dates are prominent and separate (the user's readability request).
+rect(margin+23,140,455,57,'#224a60');rect(margin+490,140,455,57,'#224a60');txt('昨日任务 / TASK',margin+38,164,14,'#a8ced7',760);txt(model.taskDate,margin+215,180,25,'#ffffff',900);txt('最新查询 / CHECKED',margin+505,164,14,'#a8ced7',760);txt(model.checkDate,margin+701,180,25,'#ffffff',900);
+const showPickup=part.some(c=>valid(c.due)!==null&&valid(c.picked)!==null),showDelivery=part.some(c=>valid(c.expectedDelivery)!==null&&valid(c.delivered)!==null);const stat=[['昨日应领 / Expected pickup',showPickup?fmt(all.due):'—'],['昨日已领 / Picked up',showPickup?fmt(all.picked):'—'],['昨日未领 / Unpicked',showPickup?fmt(all.due-all.picked):'—'],['取件率 / Pickup rate',all.due>0?`${(100*all.picked/all.due).toFixed(2)}%`:'—'],['昨日应派 / Expected delivery',showDelivery?fmt(all.expectedDelivery):'—'],['昨日已送达 / Delivered',showDelivery?fmt(all.delivered):'—'],['昨日未送达 / Undelivered',showDelivery?fmt(all.expectedDelivery-all.delivered):'—'],['送达率 / Delivery rate',all.expectedDelivery>0?`${(100*all.delivered/all.expectedDelivery).toFixed(2)}%`:'—']];const cw=(content-36)/4;stat.forEach(([title,val],i)=>{const col=i%4,row=Math.floor(i/4),xx=margin+(cw+12)*col,yy=CARD_Y+row*(93+14);rect(xx,yy,cw,93,i===3||i===7?'#e7f5ef':(row===0?'#f0f5f7':'#f7f9fa'));txt(title,xx+15,yy+28,13,'#607e8f',760);txt(val,xx+15,yy+70,27,i===3||i===7?forest:navy,900)});
+y=CARD_BOTTOM;for(const p of groupParts){if(groupParts.length>1){rect(margin,y-9,content,3,'#d6e5e9');txt(`货代 / DSP ${p.map(c=>c.name).join(' · ')}`,margin,y+14,15,'#627f8f',800);y+=35}y=reportSummary(p,y,true)+25;y=reportSection('yes',p,y,true)+24;y=reportSection('no',p,y,true)+24;y=reportAnomalies(p,y,true)+24;y=reportDelivery(p,y,true)+36}
 if(photos.length){rect(margin,y,content,41,'#edf3f5');txt('DMS 佐证截图 / Supporting screenshots',margin+15,y+28,19,navy,850);y+=53;for(const c of part){if(!c.photos.length)continue;txt(c.name+' · DMS',margin+10,y+26,19,navy,850);y+=43;for(const p of c.photos){let im=imap.get(p.id),dim=imageLayout(im);rect(margin,y,content,dim.h+49,'#f0f4f6');if(im)ctx.drawImage(im,margin+(content-dim.w)/2,y+12,dim.w,dim.h);txt(clipped(p.title||'DMS截图',content-35,14),margin+14,y+dim.h+34,14,'#51758a',600);y+=dim.h+61}y+=17}}
-rect(margin,h-54,content,1,'#dce6eb');txt('口径 / Method: 仅追踪昨日未领任务；每件按最新结果归类一次。备注为空不显示。 / Previous-day unpicked only; no blank note rows.',margin,h-29,13,'#8299a8',450);return canvas}
-async function downloadReport(){try{$('downloadBtn').disabled=true;const cv=await drawReport();const blob=await new Promise(resolve=>cv.toBlob(resolve,'image/png'));if(!blob)throw Error('PNG export failed');const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`货代日报_${model.station}_${model.taskDate}.png`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);notify('PNG 已导出 / Downloaded')}catch(e){notify('生成失败 / Export failed: '+e.message)}finally{$('downloadBtn').disabled=false}}
-async function preview(){try{$('previewBtn').disabled=true;await drawReport();$('previewOverlay').classList.add('open')}catch(e){notify('预览失败 / Preview failed: '+e.message)}finally{$('previewBtn').disabled=false}}
+y+=24;for(const p of groupParts){y=reportFinalAudit(p,y,true)+26}
+rect(margin,h-55,content,1,'#dce6eb');txt('口径：昨天的取件、派送分别统计；未领核对仅 A+B；漏轨迹异常按昨日应派计算。/ Missing scans are separate.',margin,h-28,13,'#8299a8',450);return canvas}
+async function pngDownload(cv,filename){const blob=await new Promise(resolve=>cv.toBlob(resolve,'image/png'));if(!blob)throw Error('PNG export failed');const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
+async function downloadReport(includePhotos=false){const button=includePhotos?$('downloadFullBtn'):$('downloadBtn');try{button.disabled=true;const cv=await drawReport(includePhotos);await pngDownload(cv,`货代日报_${model.station}_${model.taskDate}${includePhotos?'_含DMS长图':'_清晰正文'}.png`);notify('已下载 PNG / PNG downloaded')}catch(e){notify('生成失败 / Export failed: '+e.message)}finally{button.disabled=false}}
+async function downloadEvidence(){try{const part=selected();if(!part.length)throw Error('请勾选货代 / Select a DSP');const photos=part.flatMap(c=>c.photos.map(p=>({...p,owner:c.name})));if(!photos.length)throw Error('当前所选货代没有上传截图 / No DMS screenshots');$('evidenceBtn').disabled=true;
+const images=await Promise.all(photos.map(p=>imageReady(p.data)));const imageHeight=im=>{const nw=im?.naturalWidth||1100,nh=im?.naturalHeight||650;const f=Math.min(1.1,(content-50)/nw,920/nh);return {w:Math.round(nw*f),h:Math.round(nh*f)}};
+const H=photos.reduce((sum,p,i)=>sum+imageHeight(images[i]).h+105,150)+70;if(H>32000)throw Error('截图太多，请减少数量 / Too many images');
+const cv=document.createElement('canvas');cv.width=W;cv.height=H;const cx=cv.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,W,H);cx.fillStyle=navy;cx.fillRect(0,0,W,120);cx.fillStyle='#fff';cx.font='900 33px "Microsoft YaHei",sans-serif';cx.fillText(`DMS 截图附件 / DMS Evidence · ${model.station}`,margin,73);let yy=143;
+photos.forEach((p,i)=>{const dim=imageHeight(images[i]);cx.fillStyle='#e9f1f5';cx.fillRect(margin,yy,content,42);cx.fillStyle=navy;cx.font='800 19px "Microsoft YaHei",sans-serif';cx.fillText(`${p.owner}  ·  ${p.title||'DMS'}`.slice(0,85),margin+15,yy+29);yy+=50;cx.fillStyle='#f5f8fa';cx.fillRect(margin,yy,content,dim.h+12);if(images[i])cx.drawImage(images[i],margin+(content-dim.w)/2,yy+6,dim.w,dim.h);yy+=dim.h+55});
+await pngDownload(cv,`货代日报_${model.station}_${model.taskDate}_DMS附件.png`);notify('DMS 截图附件已导出 / Evidence downloaded')
+}catch(e){notify('导出截图失败：'+e.message)}finally{$('evidenceBtn').disabled=false}}
+async function preview(){try{$('previewBtn').disabled=true;await drawReport(false);$('previewOverlay').classList.add('open')}catch(e){notify('预览失败 / Preview failed: '+e.message)}finally{$('previewBtn').disabled=false}}
 function backup(){const blob=new Blob([JSON.stringify(model,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`货代日报_备份_${model.station}_${model.taskDate}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000)}
-async function restore(file){try{if(file.size>65*1024*1024)throw Error('备份文件过大 / Too large');const raw=JSON.parse(await file.text());if(!Array.isArray(raw.carriers)||!['MIA01','FLL01','WPB'].includes(raw.station)||!/^\d{4}-\d{2}-\d{2}$/.test(raw.taskDate))throw Error('备份格式不正确 / Invalid backup');if(!confirm(`确定恢复 ${raw.station} / ${raw.taskDate} 的备份？\nRestore this backup?`))return;await save();model=normalize(raw);active=selected()[0]?.id||null;$('taskDate').value=model.taskDate;$('checkDate').value=model.checkDate;resetEntry();render();await save();notify('备份已恢复 / Backup restored')}catch(e){notify('恢复失败 / Restore failed: '+e.message)}}
+async function restore(file){try{if(file.size>65*1024*1024)throw Error('备份文件过大 / Too large');const raw=JSON.parse(await file.text());if(!Array.isArray(raw.carriers)||!['MIA01','FLL01','WPB'].includes(raw.station)||!/^\d{4}-\d{2}-\d{2}$/.test(raw.taskDate))throw Error('备份格式不正确 / Invalid backup');if(!confirm(`确定恢复 ${raw.station} / ${raw.taskDate} 的备份？\nRestore this backup?`))return;await save();model=normalize(raw);active=selected()[0]?.id||null;$('taskDate').value=model.taskDate;$('checkDate').value=model.checkDate;resetEntry();resetDeliveryForm();resetAbnormalForm();render();await save();notify('备份已恢复 / Backup restored')}catch(e){notify('恢复失败 / Restore failed: '+e.message)}}
 function bind(){document.querySelectorAll('[data-station]').forEach(b=>b.onclick=()=>{if(b.dataset.station!==model.station)changeScope(b.dataset.station,model.taskDate)});$('taskDate').onchange=e=>changeScope(model.station,e.target.value||model.taskDate);$('checkDate').onchange=e=>{model.checkDate=e.target.value||today();changed()};
 $('dspList').onchange=e=>{const id=e.target.dataset.toggle;if(!id)return;const c=model.carriers.find(c=>c.id===id);if(!c)return;c.selected=e.target.checked;if(c.selected)active=c.id;else if(active===c.id){active=selected()[0]?.id||null;resetEntry()}changed()};
-$('dspList').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='addDSP'){const n=prompt('新货代名称 / New DSP name (e.g. GLP):','');if(n==null)return;const name=n.trim().toUpperCase().slice(0,30);if(!name)return notify('名称不能为空 / Name required');if(model.carriers.some(c=>c.name===name))return notify('货代已存在，可直接勾选 / Already exists');if(model.carriers.length>=18)return notify('最多 18 家 / Max 18 DSPs');const c=makeDSP(name);c.selected=true;model.carriers.push(c);active=c.id;resetEntry();changed()}else if(b.dataset.editcarrier){active=b.dataset.editcarrier;resetEntry();render();$('editorCard').scrollIntoView({behavior:'smooth',block:'start'})}else if(b.dataset.delcarrier){const c=model.carriers.find(c=>c.id===b.dataset.delcarrier);if(!c||!confirm(`删除 ${c.name} 的全部数据？\nDelete all data for ${c.name}?`))return;model.carriers=model.carriers.filter(x=>x.id!==c.id);if(active===c.id){active=selected()[0]?.id||null;resetEntry()}changed()}};
-for(const [id,field] of [['dueInput','due'],['pickedInput','picked']])$(id).oninput=e=>{const c=carrier();if(!c)return;c[field]=e.target.value;changed()};
+$('dspList').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='addDSP'){const n=prompt('新货代名称 / New DSP name (e.g. GLP):','');if(n==null)return;const name=n.trim().toUpperCase().slice(0,30);if(!name)return notify('名称不能为空 / Name required');if(model.carriers.some(c=>c.name===name))return notify('货代已存在，可直接勾选 / Already exists');if(model.carriers.length>=18)return notify('最多 18 家 / Max 18 DSPs');const c=makeDSP(name);c.selected=true;model.carriers.push(c);model.removedDSPs=(model.removedDSPs||[]).filter(x=>x!==name);active=c.id;resetEntry();resetDeliveryForm();resetAbnormalForm();changed()}else if(b.dataset.editcarrier){active=b.dataset.editcarrier;resetEntry();resetDeliveryForm();resetAbnormalForm();render();$('editorCard').scrollIntoView({behavior:'smooth',block:'start'})}else if(b.dataset.delcarrier){const c=model.carriers.find(c=>c.id===b.dataset.delcarrier);if(!c||!confirm(`删除 ${c.name} 的全部数据？\nDelete all data for ${c.name}?`))return;model.carriers=model.carriers.filter(x=>x.id!==c.id);model.removedDSPs=[...new Set([...(model.removedDSPs||[]),c.name])];if(active===c.id){active=selected()[0]?.id||null;resetEntry();resetDeliveryForm();resetAbnormalForm()}changed()}};
+for(const [id,field] of [['dueInput','due'],['pickedInput','picked'],['expectedDeliveryInput','expectedDelivery'],['deliveredInput','delivered']])$(id).oninput=e=>{const c=carrier();if(!c)return;c[field]=e.target.value;changed()};
 $('reasonInput').onfocus=()=>{if(!editId){choice=null;$('reasonInput').value=''}filterReasons();suggestion(true)};$('reasonInput').oninput=e=>{choice=null;filterReasons(e.target.value);suggestion(true)};$('reasonInput').onkeydown=e=>{if(e.key==='Escape')suggestion(false);if(e.key==='Enter'&&$('suggestions').classList.contains('open')){e.preventDefault();const first=$('suggestions').querySelector('button[data-reason]');if(first){choose(getDef(first.dataset.reason));$('qtyInput').focus()}}};
 $('suggestions').onclick=e=>{const b=e.target.closest('[data-reason]');if(!b)return;choose(getDef(b.dataset.reason));$('qtyInput').focus()};document.addEventListener('pointerdown',e=>{if(!$('searchBox').contains(e.target))suggestion(false)});
 $('entryForm').onsubmit=e=>{e.preventDefault();const c=carrier();if(!c)return;if(!choice)return notify('请先选择具体情况 / Choose a situation');let qty=Number($('qtyInput').value);if(!Number.isSafeInteger(qty)||qty<=0)return notify('件数必须是正整数 / Positive integers only');let note=$('noteInput').value.trim();let id=choice.id;
@@ -171,12 +613,30 @@ if(isCustom(choice)){
 }
 if(editId){if(editId!==id)delete c.items[editId];c.items[id]={qty,note}}else{const prev=c.items[id]||{qty:0,note:''};const prevNote=String(prev.note||'').trim();c.items[id]={qty:(prev.qty||0)+qty,note:note?(prevNote&&prevNote!==note?prevNote+'；'+note:note):prevNote}}
 resetEntry();changed();notify('已添加 / Saved')};$('cancelEdit').onclick=resetEntry;
-for(const sect of ['yes','no'])$(sect+'Items').onclick=e=>{const b=e.target.closest('button[data-change],button[data-delete]');if(!b)return;const c=carrier(),id=b.dataset.change||b.dataset.delete;if(b.dataset.delete){if(confirm('删除该问题的数量与备注？ / Delete this entry?')){delete c.items[id];if(editId===id)resetEntry();changed()}return}editId=id;choose(getDef(id));$('qtyInput').value=c.items[id].qty;$('noteInput').value=c.items[id].note||'';$('addBtn').textContent='保存修改 / Save changes';$('cancelEdit').hidden=false;$('reasonInput').scrollIntoView({behavior:'smooth',block:'center'})};
+for(const sect of ['yes','no'])$(sect+'Items').onclick=e=>{const b=e.target.closest('button[data-change],button[data-delete]');if(!b)return;const c=carrier(),id=b.dataset.change||b.dataset.delete;if(b.hasAttribute('data-delete')){const saved={...c.items[id]};deleteUndo('已删除未领分类记录 / Analysis entry deleted',()=>{delete c.items[id];if(editId===id)resetEntry()},()=>{c.items[id]=saved});return}editId=id;choose(getDef(id));$('qtyInput').value=c.items[id].qty;$('noteInput').value=c.items[id].note||'';$('addBtn').textContent='保存修改 / Save changes';$('cancelEdit').hidden=false;$('reasonInput').scrollIntoView({behavior:'smooth',block:'center'})};
+
+$('abnReason').onchange=e=>{const d=getDef(e.target.value);$('abnCustomWrap').hidden=!(d&&d.id==='X3');if(d?.id==='X3'){$('abnCustomZh').value='';$('abnCustomEn').value=''}};
+$('abnCancel').onclick=resetAbnormalForm;
+$('abnNoneCheck').onchange=e=>{const c=carrier();if(!c)return;if(anomalyCount(c)>0){e.target.checked=false;return notify('已有异常记录，不能标记无异常 / Abnormal entries exist')}c.abnormalReviewed=e.target.checked;changed();notify(c.abnormalReviewed?'已确认无异常 / No abnormalities confirmed':'已改为待核查 / Marked pending review')};
+$('abnForm').onsubmit=e=>{e.preventDefault();const c=carrier();if(!c)return;const picked=$('abnReason').value,qty=Number($('abnQty').value),note=$('abnNote').value.trim().slice(0,500);if(!getDef(picked)||getDef(picked).sect!=='abn')return notify('请选择漏轨迹异常 / Select missing-scan issue');if(!Number.isSafeInteger(qty)||qty<1)return notify('请填写正确件数 / Enter valid quantity');let id=picked;
+if(picked==='X3'){const zh=$('abnCustomZh').value.trim().slice(0,90),en=$('abnCustomEn').value.trim().slice(0,115)||'Custom missing-scan issue';if(!zh)return notify('请输入自定义异常 / Enter custom situation');let d=(model.customSituations||[]).find(x=>x.sect==='abn'&&x.zh===zh&&x.en===en);if(!d){d={id:'USR_'+uid(),...customGroup('abn'),zh,en,custom:true};model.customSituations??=[];model.customSituations.push(d)}id=d.id}
+c.abnormalReviewed=true;
+if(abnEditId){if(abnEditId!==id)delete c.items[abnEditId];c.items[id]={qty,note}}else{const old=c.items[id]||{qty:0,note:''};c.items[id]={qty:(valid(old.qty)||0)+qty,note:[old.note,note].filter(Boolean).join('；').slice(0,500)}}resetAbnormalForm();changed();notify('漏轨迹异常已保存 / Abnormal pickup saved')};
+$('abnItems').onclick=e=>{const btn=e.target.closest('button[data-abn-edit],button[data-abn-del]');if(!btn)return;const c=carrier(),id=btn.dataset.abnEdit||btn.dataset.abnDel;if(!c?.items[id])return;if(btn.hasAttribute('data-abn-del')){const saved={...c.items[id]};deleteUndo('已删除异常领件记录 / Missing-scan entry deleted',()=>{delete c.items[id];if(!anomalyCount(c))c.abnormalReviewed=false;if(abnEditId===id)resetAbnormalForm()},()=>{c.items[id]=saved;c.abnormalReviewed=true});return}const d=getDef(id);abnEditId=id;$('abnReason').value=d?.custom?'X3':id;$('abnQty').value=c.items[id].qty;$('abnNote').value=c.items[id].note||'';$('abnCustomWrap').hidden=!d?.custom;if(d?.custom){$('abnCustomZh').value=d.zh;$('abnCustomEn').value=d.en}$('abnAddBtn').textContent='✓ 保存修改 / Save';$('abnCancel').hidden=false;$('abnForm').scrollIntoView({block:'center',behavior:'smooth'})};
+$('deliveryReason').onchange=e=>{$('deliveryCustomWrap').hidden=e.target.value!=='other'};
+$('deliveryCancel').onclick=resetDeliveryForm;
+$('deliveryForm').onsubmit=e=>{e.preventDefault();const c=carrier();if(!c)return;const reason=$('deliveryReason').value,qty=Number($('deliveryQty').value),custom=$('deliveryCustom').value.trim();if(!deliveryReasons[reason])return notify('请选择原因 / Select a reason');if(reason==='other'&&!custom)return notify('请填写具体原因 / Enter a custom reason');if(!Number.isSafeInteger(qty)||qty<=0)return notify('请输入有效件数 / Enter a valid parcel count');const eta=$('deliveryETA').value;if(eta&&!/^\d{4}-\d{2}-\d{2}$/.test(eta))return notify('请输入有效日期 / Invalid ETA');let item={id:deliveryEditId||uid(),reason,qty,eta,custom:reason==='other'?custom.slice(0,95):'',note:$('deliveryNote').value.trim().slice(0,400)};
+if(deliveryEditId){const idx=c.undeliveredRows.findIndex(x=>x.id===deliveryEditId);if(idx>=0)c.undeliveredRows[idx]=item;else c.undeliveredRows.push(item)}else{const existing=c.undeliveredRows.find(x=>x.reason===reason&&x.eta===eta&&(x.custom||'')===item.custom&&(x.note||'')===item.note);if(existing)existing.qty+=qty;else c.undeliveredRows.push(item)}resetDeliveryForm();changed();notify('未送达跟进已保存 / Follow-up saved')};
+$('deliveryList').onclick=e=>{const btn=e.target.closest('button[data-edit-delivery],button[data-delete-delivery]');if(!btn)return;const c=carrier(),id=btn.dataset.editDelivery||btn.dataset.deleteDelivery,r=c?.undeliveredRows.find(x=>x.id===id);if(!r)return;if(btn.hasAttribute('data-delete-delivery')){const oldIndex=c.undeliveredRows.findIndex(x=>x.id===id),saved={...r};deleteUndo('已删除未送达记录 / Delivery entry deleted',()=>{c.undeliveredRows=c.undeliveredRows.filter(x=>x.id!==id);if(deliveryEditId===id)resetDeliveryForm()},()=>{if(!c.undeliveredRows.some(x=>x.id===id))c.undeliveredRows.splice(Math.min(oldIndex,c.undeliveredRows.length),0,saved)});return}deliveryEditId=id;$('deliveryReason').value=r.reason;$('deliveryCustomWrap').hidden=r.reason!=='other';$('deliveryCustom').value=r.custom||'';$('deliveryQty').value=r.qty;$('deliveryETA').value=r.eta||'';$('deliveryNote').value=r.note||'';$('deliveryAddBtn').textContent='保存修改 / Save changes';$('deliveryCancel').hidden=false;$('deliveryForm').scrollIntoView({behavior:'smooth',block:'center'})};
 $('uploadBtn').onclick=()=>$('photoInput').click();$('photoInput').onchange=async e=>{await addPictures([...e.target.files]);e.target.value=''};$('photoList').onclick=e=>{let el=e.target.closest('[data-zoom],[data-delphoto]');if(!el)return;const c=carrier();if(el.dataset.delphoto){c.photos=c.photos.filter(p=>p.id!==el.dataset.delphoto);changed()}else{const p=c.photos.find(p=>p.id===el.dataset.zoom);if(p){$('zoomedImg').src=p.data;$('imageOverlay').classList.add('open')}}};$('photoList').onchange=e=>{const id=e.target.dataset.caption;if(!id)return;const p=carrier()?.photos.find(p=>p.id===id);if(p){p.title=e.target.value;changed()}};
-$('previewBtn').onclick=preview;$('downloadBtn').onclick=$('previewDownload').onclick=downloadReport;$('closePreview').onclick=()=>$('previewOverlay').classList.remove('open');$('previewOverlay').onclick=e=>{if(e.target===$('previewOverlay'))$('previewOverlay').classList.remove('open')};$('closeZoom').onclick=()=>$('imageOverlay').classList.remove('open');$('imageOverlay').onclick=e=>{if(e.target===$('imageOverlay'))$('imageOverlay').classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('previewOverlay').classList.remove('open');$('imageOverlay').classList.remove('open');suggestion(false)}});
+$('previewBtn').onclick=preview;$('downloadBtn').onclick=$('previewDownload').onclick=()=>downloadReport(false);$('downloadFullBtn').onclick=()=>downloadReport(true);$('evidenceBtn').onclick=downloadEvidence;$('closePreview').onclick=()=>$('previewOverlay').classList.remove('open');$('previewOverlay').onclick=e=>{if(e.target===$('previewOverlay'))$('previewOverlay').classList.remove('open')};$('closeZoom').onclick=()=>$('imageOverlay').classList.remove('open');$('imageOverlay').onclick=e=>{if(e.target===$('imageOverlay'))$('imageOverlay').classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('previewOverlay').classList.remove('open');$('imageOverlay').classList.remove('open');suggestion(false)}});
+$('newReportBtn').onclick=()=>{
+ if(!confirm('清空当前站点与日期的全部件数、问题、备注及截图？\nClear all values, issues, notes and screenshots for the current station/date?'))return;
+ clearTimeout(saveTimer);currentSessionReports.delete(storageKey());model=freshReport(model.station,model.taskDate);model.checkDate=today();active=null;resetEntry();resetAbnormalForm();resetDeliveryForm();$('checkDate').value=model.checkDate;render();$('saveStatus').textContent='新日报 · 空白 / Fresh blank report';notify('已清空今日填写，DSP名单保留 / Form cleared; DSP roster retained');
+};
 $('backupBtn').onclick=backup;$('restoreBtn').onclick=()=>$('restoreInput').click();$('restoreInput').onchange=async e=>{if(e.target.files[0])await restore(e.target.files[0]);e.target.value=''};
 }
-async function init(){try{db=await openDB()}catch(e){console.warn('IndexedDB:',e)}let saved;try{saved=await idbRead(storageKey())}catch{}if(!saved){try{saved=JSON.parse(localStorage.getItem(storageKey())||'null')}catch{}}if(saved?.carriers?.length)model=normalize(saved);active=selected()[0]?.id||null;$('taskDate').value=model.taskDate;$('checkDate').value=model.checkDate;bind();render()}
+async function init(){try{db=await openDB()}catch(e){console.warn('IndexedDB:',e)}for(const site of ['MIA01','FLL01','WPB'])await migrateNamesOnlyFromLegacy(site);model=freshReport('MIA01',yesterday(today()));active=null;$('taskDate').value=model.taskDate;$('checkDate').value=model.checkDate;bind();render();$('saveStatus').textContent='✓ 新日报 · 空白 / Fresh blank report'}
 init().catch(e=>{console.error(e);notify('载入失败，请刷新页面 / Load failed')});
 })();
 </script>
